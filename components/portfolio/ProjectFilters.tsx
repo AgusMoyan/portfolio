@@ -13,7 +13,7 @@ export default function ProjectFilters({
   onChange,
 }: ProjectFiltersProps) {
   return (
-    <div className="flex flex-wrap gap-2" aria-label="Project filters">
+    <div className="flex flex-wrap gap-2" role="group" aria-label="Project filters">
       {projectFilters.map((filter) => {
         const isActive = activeFilter === filter.id;
 

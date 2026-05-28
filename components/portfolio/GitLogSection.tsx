@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { gitLogEntries } from "../../data/gitLog";
+import { gitLogHeader, gitLogEntries } from "../../data/gitLog";
 import {
   sectionContainerVariants,
   sectionExit,
@@ -9,16 +9,33 @@ import {
 } from "./animation";
 
 export default function GitLogSection() {
+  const { eyebrow, title, description } = gitLogHeader;
+
   return (
     <motion.section
       variants={sectionContainerVariants}
       initial="hidden"
       animate="show"
       exit={sectionExit}
-      className="flex w-full flex-col items-center text-left"
+      className="flex w-full flex-col text-left"
       aria-label="Career git log"
     >
-      <div className="w-full space-y-4">
+      {/* Header */}
+      <motion.header variants={sectionItemVariants} className="space-y-3">
+        <span className="inline-flex rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-[10px] text-zinc-500 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400">
+          {eyebrow}
+        </span>
+        <div className="space-y-2">
+          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">
+            {title}
+          </h2>
+          <p className="max-w-2xl text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+            {description}
+          </p>
+        </div>
+      </motion.header>
+
+      <div className="mt-6 w-full space-y-4">
         {gitLogEntries.map((entry) => (
           <motion.div
             key={entry.hash}

@@ -56,7 +56,7 @@ export default function ContactSection() {
     >
       <motion.span
         variants={sectionItemVariants}
-        className="mb-4 rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-xs text-zinc-500 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400"
+        className="mb-4 text-xs text-zinc-400 dark:text-zinc-500"
       >
         contact.config
       </motion.span>
@@ -77,16 +77,16 @@ export default function ContactSection() {
             target={channel.external ? "_blank" : undefined}
             rel={channel.external ? "noopener noreferrer" : undefined}
             aria-label={`Abrir ${channel.label}: ${channel.value}`}
-            className="flex items-center gap-4 rounded-xl border border-zinc-200 bg-white px-5 py-3.5 text-left shadow-sm transition hover:bg-zinc-50 hover:border-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-zinc-800 dark:bg-zinc-950 dark:focus-visible:ring-offset-zinc-950 dark:hover:bg-zinc-900 dark:hover:border-zinc-700"
+            className="flex items-center gap-4 rounded-xl px-4 py-3.5 text-left transition hover:bg-zinc-100/60 dark:hover:bg-zinc-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-100 text-zinc-500 dark:bg-zinc-900 dark:text-zinc-400">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-100/60 text-zinc-500 dark:bg-zinc-900/60 dark:text-zinc-400">
               {iconMap[channel.label]}
             </span>
             <div className="flex flex-col">
-              <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+              <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
                 {channel.label}
               </span>
-              <span className="break-all text-sm font-medium text-zinc-800 dark:text-zinc-200 font-mono">
+              <span className="break-all text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 {channel.value}
               </span>
             </div>

@@ -19,7 +19,7 @@ export default function BootingPreview() {
             <motion.span
               key={i}
               className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 inline-block"
-              animate={{ opacity: [0.3, 1, 0.3] }}
+              animate={{ opacity: [0.25, 1, 0.25] }}
               transition={{
                 duration: 1.2,
                 repeat: Infinity,
@@ -43,10 +43,10 @@ export default function BootingPreview() {
           >
             <motion.div
               className={`h-full rounded-full bg-zinc-400 dark:bg-zinc-600 ${bar.width}`}
-              initial={{ x: "-100%" }}
-              animate={{ x: "200%" }}
+              initial={{ opacity: 0.3 }}
+              animate={{ opacity: [0.25, 0.75, 0.25] }}
               transition={{
-                duration: 1.8,
+                duration: 1.6,
                 repeat: Infinity,
                 delay: bar.delay,
                 ease: "easeInOut",

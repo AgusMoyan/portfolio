@@ -1,5 +1,12 @@
 import type { GitLogEntry } from "../types/portfolio";
 
+export const gitLogHeader = {
+  eyebrow: "git log --career",
+  title: "Career commits",
+  description:
+    "Hitos que marcaron mi evolución como developer web, mobile y full stack.",
+};
+
 export const gitLogEntries: GitLogEntry[] = [
   {
     hash: "a9f3c21",

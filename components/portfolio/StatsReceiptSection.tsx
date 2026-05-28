@@ -19,7 +19,7 @@ export default function StatsReceiptSection() {
       animate="show"
       exit={sectionExit}
       className="flex w-full flex-col items-center text-left"
-      aria-label="Developer stats receipt"
+      aria-label="Developer receipt"
     >
       <motion.div
         variants={sectionItemVariants}
@@ -27,7 +27,10 @@ export default function StatsReceiptSection() {
       >
         {/* Header */}
         <div className="mb-4 border-b border-zinc-100 pb-3 text-center dark:border-zinc-800">
-          <h2 className="text-base font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+          <span className="mb-2 inline-flex rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-[10px] text-zinc-500 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400">
+            dev.receipt
+          </span>
+          <h2 className="mt-2 text-base font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
             {title}
           </h2>
           <p className="text-[11px] font-mono text-zinc-400 dark:text-zinc-500">

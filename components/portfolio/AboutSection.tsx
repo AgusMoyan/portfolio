@@ -20,7 +20,7 @@ export default function AboutSection() {
     >
       {/* Header */}
       <motion.div variants={sectionItemVariants} className="w-full space-y-3">
-        <span className="inline-flex rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-xs text-zinc-500 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400">
+        <span className="text-xs text-zinc-400 dark:text-zinc-500">
           {developerProfile.eyebrow}
         </span>
 
@@ -43,15 +43,15 @@ export default function AboutSection() {
           <motion.div
             key={principle.number}
             variants={sectionItemVariants}
-            className="rounded-xl border border-zinc-200 bg-white/80 p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-950/80"
+            className="border-l-2 border-zinc-200 pl-4 dark:border-zinc-700"
           >
-            <span className="font-mono text-[11px] font-semibold text-indigo-500 dark:text-indigo-400">
+            <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
               {principle.number}
             </span>
-            <h3 className="mt-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            <h3 className="mt-1.5 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
               {principle.title}
             </h3>
-            <p className="mt-1.5 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
+            <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
               {principle.description}
             </p>
           </motion.div>
@@ -61,22 +61,14 @@ export default function AboutSection() {
       {/* Contribution areas */}
       <motion.div
         variants={sectionItemVariants}
-        className="mt-5 w-full space-y-3"
+        className="mt-6 w-full space-y-3"
       >
-        <h3 className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-600">
+        <h3 className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
           Where I usually contribute
         </h3>
-        <div className="flex flex-wrap gap-2">
-          {developerProfile.contributionAreas.map((item) => (
-            <span
-              key={item}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-600 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              {item}
-            </span>
-          ))}
-        </div>
+        <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
+          {developerProfile.contributionAreas.join(" · ")}
+        </p>
       </motion.div>
     </motion.section>
   );

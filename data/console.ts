@@ -1,4 +1,8 @@
-import type { PortfolioCommand, PortfolioStatus } from "../types/portfolio";
+import {
+  isPortfolioCommand,
+  type PortfolioCommand,
+  type PortfolioStatus,
+} from "../types/portfolio";
 
 export const consoleIntro = {
   version: "// Developer Portfolio Console v1.0.0",
@@ -35,7 +39,7 @@ export const bootSequence = [
   "> run agustin-profile --mode=interactive",
   "Reading profile.ts",
   "Loading highlighted projects",
-  "Detecting stack: React, Next.js, React Native, Supabase",
+  "Detecting scope: product flows, web apps, mobile apps, integrations",
   "Preparing recruiter mode",
   "Rendering portfolio preview",
   "Done",
@@ -77,15 +81,19 @@ export const commandConfig: Record<
   stack: {
     label: "/stack",
     hint: "technical stack",
-    sequence: ["Reading stack.ts", "Grouping technologies", "Rendering stack grid"],
+    sequence: [
+      "Reading stack.layers",
+      "Grouping tools by purpose",
+      "Rendering technical map",
+    ],
   },
   experience: {
     label: "/experience",
     hint: "timeline",
     sequence: [
-      "Reading experience.timeline",
-      "Sorting professional milestones",
-      "Rendering timeline",
+      "Reading professional.timeline",
+      "Sorting roles and milestones",
+      "Rendering career timeline",
     ],
   },
   cv: {
@@ -109,31 +117,29 @@ export const commandConfig: Record<
     ],
   },
   stats: {
-    label: "/stats",
+    label: "/receipt",
     hint: "developer receipt",
     sequence: [
       "Reading stats.receipt",
-      "Calculating shipped work",
-      "Formatting developer receipt",
-      "Rendering stats panel",
+      "Formatting quick developer metrics",
+      "Rendering receipt",
     ],
   },
   gitLog: {
     label: "/git-log",
     hint: "career commits",
     sequence: [
-      "Reading experience.timeline",
-      "Converting milestones into commits",
-      "Sorting career history",
+      "Reading career commits",
+      "Sorting professional history",
       "Rendering git log",
     ],
   },
   achievements: {
     label: "/achievements",
-    hint: "unlocked badges",
+    hint: "unlocked milestones",
     sequence: [
-      "Scanning projects",
-      "Unlocking production badges",
+      "Scanning unlocked milestones",
+      "Loading achievement badges",
       "Rendering achievements",
     ],
   },
@@ -158,19 +164,18 @@ export const consoleStatusCopy: Record<
   },
   cv: { label: "cv", text: "cv panel loaded — choose another command" },
   contact: { label: "contact", text: "contact panel loaded — choose another command" },
-  stats: { label: "stats", text: "stats receipt loaded — choose another command" },
+  stats: { label: "receipt", text: "receipt loaded — choose another command" },
   gitLog: { label: "git-log", text: "git log loaded — choose another command" },
   achievements: { label: "achievements", text: "achievements loaded — choose another command" },
-};
-
-const statusDisplayOverrides: Record<string, string> = {
-  gitLog: "git-log",
 };
 
 export function getPortfolioFooterHint(status: PortfolioStatus) {
   if (status === "idle") return "v1.0.0-beta • waiting for user input";
   if (status === "booting") return "v1.0.0-beta • loading runtime modules";
   if (status === "ready") return "v1.0.0-beta • commands available";
-  const display = statusDisplayOverrides[status] ?? status;
-  return `v1.0.0-beta • /${display} rendered`;
+  if (isPortfolioCommand(status)) {
+    return `v1.0.0-beta • ${commandConfig[status].label} rendered`;
+  }
+
+  return "v1.0.0-beta • portfolio rendered";
 }

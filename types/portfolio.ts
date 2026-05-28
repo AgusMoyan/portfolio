@@ -1,8 +1,8 @@
 export const portfolioCommands = [
-  "about",
   "projects",
-  "stack",
+  "about",
   "experience",
+  "stack",
   "cv",
   "contact",
   "stats",
@@ -32,12 +32,29 @@ export interface Profile {
 
 export interface TechCategory {
   category: string;
+  description: string;
+  usedFor: string;
   items: string[];
 }
 
 export interface ExperienceItem {
+  id: string;
+  role: string;
+  company: string;
+  location?: string;
+  mode?: string;
+  period: string;
+  summary: string;
+  bullets: string[];
+  tags?: string[];
+}
+
+export interface MilestoneItem {
+  id: string;
   title: string;
-  description: string;
+  period?: string;
+  summary: string;
+  tags?: string[];
 }
 
 export interface Contact {
@@ -45,7 +62,10 @@ export interface Contact {
   github: string;
   linkedin: string;
   whatsapp?: string;
-  cvPath: string;
+  cv: {
+    path: string;
+    available: boolean;
+  };
 }
 
 export interface StatsItem {
@@ -86,9 +106,7 @@ export interface AboutData {
 }
 
 export interface Achievement {
-  icon: string;
   title: string;
   description: string;
-  status: "unlocked" | "locked";
   project: string;
 }

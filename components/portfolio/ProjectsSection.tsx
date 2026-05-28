@@ -110,7 +110,7 @@ export default function ProjectsSection({
             Project Explorer
           </h2>
           <p className="max-w-2xl text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-            Real products, shipped workflows and production-oriented builds.
+            Select a project to inspect scope, role and shipped work.
           </p>
         </div>
       </motion.header>
@@ -123,7 +123,7 @@ export default function ProjectsSection({
         />
       </motion.div>
 
-      <div className="grid w-full gap-4 lg:grid-cols-[minmax(210px,0.72fr)_minmax(0,1.28fr)]">
+      <div className="grid w-full gap-5 lg:grid-cols-[minmax(210px,0.68fr)_minmax(0,1.32fr)]">
         <motion.div
           variants={projectItemVariants}
           className="custom-scrollbar-light min-w-0 space-y-3 lg:max-h-[calc(100svh-230px)] lg:overflow-y-auto lg:pr-1"

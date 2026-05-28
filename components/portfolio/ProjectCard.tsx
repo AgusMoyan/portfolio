@@ -24,17 +24,42 @@ const statusDots: Record<ProjectStatus, string> = {
 
 const cardTagPriority: ProjectTag[] = [
   "google-play",
-  "admin-dashboard",
   "offline-first",
-  "maps",
+  "admin-dashboard",
   "api-integration",
-  "booking-system",
-  "pricing-engine",
-  "healthcare",
-  "mobile",
   "production",
   "published",
+  "mobile",
 ];
+
+const cardTechnologyPriority = [
+  "Next.js 16",
+  "Next.js",
+  "React Native",
+  "Expo SDK 54",
+  "Expo",
+  "Mapbox GL JS",
+  "Supabase",
+  "NestJS",
+  "PostgreSQL",
+  "SQLite",
+  "EAS Build",
+  "TypeScript",
+  "React 19",
+  "React",
+] as const;
+
+function getVisibleTechnologies(project: Project) {
+  const prioritized = cardTechnologyPriority.filter((technology) =>
+    project.technologies.includes(technology)
+  );
+  const prioritizedSet = new Set<string>(prioritized);
+  const remaining = project.technologies.filter(
+    (technology) => !prioritizedSet.has(technology)
+  );
+
+  return [...prioritized, ...remaining].slice(0, 3);
+}
 
 export default function ProjectCard({
   project,
@@ -42,7 +67,7 @@ export default function ProjectCard({
   disabled = false,
   onSelect,
 }: ProjectCardProps) {
-  const visibleTechnologies = project.technologies.slice(0, 3);
+  const visibleTechnologies = getVisibleTechnologies(project);
   const hiddenTechnologyCount = Math.max(
     project.technologies.length - visibleTechnologies.length,
     0
@@ -65,7 +90,7 @@ export default function ProjectCard({
         aria-pressed={isActive}
         aria-label={`Open project ${project.name}`}
         onClick={() => onSelect(project)}
-        className="flex w-full flex-col gap-2.5 p-3.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-400/60 disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex w-full flex-col gap-2 p-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-400/60 disabled:cursor-not-allowed disabled:opacity-60"
       >
         <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
           <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-500">
@@ -101,13 +126,15 @@ export default function ProjectCard({
           )}
         </div>
 
-        <div className="flex flex-wrap gap-1.5">
-          {visibleTags.map((tag) => (
-            <ProjectTechBadge key={tag} variant="tag">
-              {tag}
-            </ProjectTechBadge>
-          ))}
-        </div>
+        {visibleTags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {visibleTags.map((tag) => (
+              <ProjectTechBadge key={tag} variant="tag">
+                {tag}
+              </ProjectTechBadge>
+            ))}
+          </div>
+        )}
       </button>
     </article>
   );

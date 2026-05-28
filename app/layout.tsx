@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Agustin Moyano — React / React Native Developer",
+  title: "Agustín Moyano — Full Stack Developer",
   description:
-    "Portfolio interactivo de Agustin Moyano, desarrollador React y React Native.",
+    "Portfolio interactivo de Agustín Moyano, developer web y mobile enfocado en productos reales, sistemas internos, integraciones y despliegues productivos.",
 };
 
 export default function RootLayout({

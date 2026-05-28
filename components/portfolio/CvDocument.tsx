@@ -105,16 +105,19 @@ function BulletList({ items }: { items: string[] }) {
   );
 }
 
+function CvBadge({ children }: { children: ReactNode }) {
+  return (
+    <span className="rounded-md border border-zinc-200 bg-zinc-50 px-2 py-0.5 text-[10px] font-medium text-zinc-600 print:border-zinc-300 print:bg-white">
+      {children}
+    </span>
+  );
+}
+
 function TechnologyBadges({ project }: { project: CvProjectItem }) {
   return (
     <div className="mt-3 flex flex-wrap gap-1.5">
       {project.technologies.map((technology) => (
-        <span
-          key={technology}
-          className="rounded-md border border-zinc-200 bg-zinc-50 px-2 py-0.5 text-[10px] font-medium text-zinc-600 print:border-zinc-300 print:bg-white"
-        >
-          {technology}
-        </span>
+        <CvBadge key={technology}>{technology}</CvBadge>
       ))}
     </div>
   );
@@ -207,12 +210,7 @@ export default function CvDocument({ cv }: CvDocumentProps) {
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
                   {skillGroup.items.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-md border border-zinc-200 bg-zinc-50 px-2 py-0.5 text-[10px] font-medium text-zinc-600 print:border-zinc-300 print:bg-white"
-                    >
-                      {skill}
-                    </span>
+                    <CvBadge key={skill}>{skill}</CvBadge>
                   ))}
                 </div>
               </div>

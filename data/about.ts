@@ -5,7 +5,7 @@ export const developerProfile: AboutData = {
   title: "Developer profile",
   subtitle: "No me defino solamente por un stack.",
   description:
-    "Trabajo conectando producto, interfaz, lógica, datos e integraciones para construir sistemas que puedan usarse en escenarios reales. Me interesa entender el problema, ordenar el flujo y llevar las soluciones a producción.",
+    "Trabajo conectando producto, interfaz, lógica, datos e integraciones para construir sistemas que puedan usarse en escenarios reales. Me interesa entender el problema, ordenar el flujo y llevar soluciones a producción sin agregar complejidad innecesaria.",
   principles: [
     {
       number: "01",
@@ -36,12 +36,10 @@ export const developerProfile: AboutData = {
     "Product flows",
     "UI architecture",
     "Mobile apps",
-    "Admin dashboards",
+    "Admin systems",
     "API integrations",
     "Auth & permissions",
     "Data modeling",
     "Production deploys",
-    "Analytics & tracking",
-    "Technical decisions",
   ],
 };

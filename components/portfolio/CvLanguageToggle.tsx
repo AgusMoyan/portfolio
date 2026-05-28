@@ -19,6 +19,7 @@ export default function CvLanguageToggle({
   return (
     <div
       className="inline-flex rounded-xl border border-zinc-200 bg-white p-1 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 print:hidden"
+      role="group"
       aria-label="Seleccionar idioma del CV"
     >
       {languages.map((language) => {

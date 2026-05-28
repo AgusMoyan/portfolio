@@ -8,8 +8,8 @@ import {
 } from "./animation";
 
 const summaryItems = [
+  { label: "Profile scope", value: "web / mobile / systems" },
   { label: "Projects indexed", value: "4" },
-  { label: "Production focus", value: "web / mobile" },
   { label: "CV document", value: "ES / EN" },
   { label: "Contact actions", value: "ready" },
 ] as const;
@@ -26,10 +26,10 @@ export default function HeroSection() {
       {/* Build successful badge */}
       <motion.span
         variants={sectionItemVariants}
-        className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-200/70 bg-emerald-50 px-3 py-1 font-mono text-[11px] font-semibold tracking-[0.12em] text-emerald-700 shadow-sm dark:border-emerald-900/50 dark:bg-emerald-950/30 dark:text-emerald-400"
+        className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400"
       >
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-        BUILD SUCCESSFUL
+        Build successful
       </motion.span>
 
       {/* Title */}
@@ -53,7 +53,7 @@ export default function HeroSection() {
         variants={sectionItemVariants}
         className="mt-4 max-w-sm text-xs leading-relaxed text-zinc-400 dark:text-zinc-500"
       >
-        Desarrollo productos web y mobile que pasan de idea a producción: cotizadores, dashboards, apps mobile, sistemas de reservas e integraciones con APIs.
+        Trabajo conectando producto, interfaz, lógica, datos e integraciones para convertir ideas en sistemas web y mobile usables en escenarios reales.
       </motion.p>
 
       {/* Runtime summary */}
@@ -61,16 +61,13 @@ export default function HeroSection() {
         variants={sectionItemVariants}
         className="mt-6 w-full space-y-2"
       >
-        <h3 className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-600">
+        <h3 className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
           Runtime summary
         </h3>
-        <div className="grid grid-cols-2 gap-2">
+        <dl className="grid grid-cols-2 gap-x-4 gap-y-2">
           {summaryItems.map((item) => (
-            <div
-              key={item.label}
-              className="rounded-xl border border-zinc-200 bg-white/70 p-2.5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950/70"
-            >
-              <dt className="font-mono text-[10px] font-medium text-zinc-400 dark:text-zinc-500">
+            <div key={item.label}>
+              <dt className="text-[11px] font-medium text-zinc-400 dark:text-zinc-500">
                 {item.label}
               </dt>
               <dd className="mt-0.5 text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
@@ -78,7 +75,7 @@ export default function HeroSection() {
               </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </motion.div>
 
       {/* Console hint */}

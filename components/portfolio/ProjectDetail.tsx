@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { ExternalLink } from "lucide-react";
 import { motion } from "motion/react";
-import type { Project } from "../../types/projects";
+import type { Project, ProjectTag } from "../../types/projects";
 import ProjectTechBadge from "./ProjectTechBadge";
 
 interface ProjectDetailProps {
@@ -23,6 +23,26 @@ const highlightPriorityTerms = [
   "emergency",
   "api",
 ];
+
+const focusTagPriority: ProjectTag[] = [
+  "google-play",
+  "offline-first",
+  "admin-dashboard",
+  "api-integration",
+  "pricing-engine",
+  "booking-system",
+  "auth",
+  "backend",
+  "maps",
+  "healthcare",
+  "production",
+  "published",
+  "mobile",
+];
+
+const maxVisibleTechnologies = 8;
+const maxVisibleFocusTags = 5;
+const maxVisibleHighlights = 5;
 
 function DetailBlock({
   title,
@@ -53,11 +73,28 @@ function getVisibleHighlights(project: Project) {
     (highlight) => !prioritized.includes(highlight)
   );
 
-  return [...prioritized, ...remaining].slice(0, 6);
+  return [...prioritized, ...remaining].slice(0, maxVisibleHighlights);
+}
+
+function getVisibleFocusTags(project: Project) {
+  const prioritized = focusTagPriority.filter((tag) => project.tags.includes(tag));
+  const remaining = project.tags.filter((tag) => !prioritized.includes(tag));
+
+  return [...prioritized, ...remaining].slice(0, maxVisibleFocusTags);
 }
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
   const visibleHighlights = getVisibleHighlights(project);
+  const visibleTechnologies = project.technologies.slice(0, maxVisibleTechnologies);
+  const hiddenTechnologyCount = Math.max(
+    project.technologies.length - visibleTechnologies.length,
+    0
+  );
+  const visibleFocusTags = getVisibleFocusTags(project);
+  const hiddenFocusTagCount = Math.max(
+    project.tags.length - visibleFocusTags.length,
+    0
+  );
 
   return (
     <motion.article
@@ -126,19 +163,29 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 
         <DetailBlock title="Stack">
           <div className="flex flex-wrap gap-1.5">
-            {project.technologies.map((technology) => (
+            {visibleTechnologies.map((technology) => (
               <ProjectTechBadge key={technology}>{technology}</ProjectTechBadge>
             ))}
+            {hiddenTechnologyCount > 0 && (
+              <ProjectTechBadge variant="muted">
+                +{hiddenTechnologyCount} more
+              </ProjectTechBadge>
+            )}
           </div>
         </DetailBlock>
 
         <DetailBlock title="Focus">
           <div className="flex flex-wrap gap-1.5">
-            {project.tags.map((tag) => (
+            {visibleFocusTags.map((tag) => (
               <ProjectTechBadge key={tag} variant="tag">
                 {tag}
               </ProjectTechBadge>
             ))}
+            {hiddenFocusTagCount > 0 && (
+              <ProjectTechBadge variant="muted">
+                +{hiddenFocusTagCount} more
+              </ProjectTechBadge>
+            )}
           </div>
         </DetailBlock>
       </div>

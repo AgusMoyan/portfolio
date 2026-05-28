@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   bootDelays,
   bootSequence,
@@ -15,6 +15,15 @@ import type { Project, ProjectFilterId } from "../../types/projects";
 import ConsolePanel from "../console/ConsolePanel";
 import PortfolioPreview from "../portfolio/PortfolioPreview";
 
+const projectFilterConsoleValue: Record<ProjectFilterId, string> = {
+  all: "all",
+  web: "web",
+  mobile: "mobile",
+  production: "production",
+  dashboards: "admin-dashboard",
+  apis: "api-integration",
+};
+
 export default function PortfolioConsoleLayout() {
   const [status, setStatus] = useState<PortfolioStatus>("idle");
   const [consoleLines, setConsoleLines] = useState<string[]>([]);
@@ -27,16 +36,7 @@ export default function PortfolioConsoleLayout() {
   const isCommandRunningRef = useRef(false);
   const isProjectExplorerLogRunningRef = useRef(false);
 
-  useEffect(() => {
-    const timers = timersRef.current;
-
-    return () => {
-      timers.forEach((timer) => clearTimeout(timer));
-      timers.length = 0;
-    };
-  }, []);
-
-  function scheduleTimer(callback: () => void, delay: number) {
+  const scheduleTimer = useCallback((callback: () => void, delay: number) => {
     const timer = setTimeout(() => {
       const timerIndex = timersRef.current.indexOf(timer);
 
@@ -48,9 +48,9 @@ export default function PortfolioConsoleLayout() {
     }, delay);
 
     timersRef.current.push(timer);
-  }
+  }, []);
 
-  function startBootSequence() {
+  const startBootSequence = useCallback(() => {
     if (hasStartedRef.current || status !== "idle") {
       return;
     }
@@ -76,7 +76,28 @@ export default function PortfolioConsoleLayout() {
       ]);
       setStatus("ready");
     }, elapsed + 520);
-  }
+  }, [scheduleTimer, status]);
+
+  useEffect(() => {
+    const timers = timersRef.current;
+
+    return () => {
+      timers.forEach((timer) => clearTimeout(timer));
+      timers.length = 0;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (status !== "idle") return;
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Enter") {
+        startBootSequence();
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [status, startBootSequence]);
 
   function runCommand(command: PortfolioCommand) {
     if (
@@ -148,18 +169,10 @@ export default function PortfolioConsoleLayout() {
   }
 
   function handleProjectFilter(filter: ProjectFilterId, resultCount: number) {
-    const filterConsoleValue: Record<ProjectFilterId, string> = {
-      all: "all",
-      web: "web",
-      mobile: "mobile",
-      production: "production",
-      dashboards: "admin-dashboard",
-      apis: "api-integration",
-    };
     const filterCommand =
       filter === "all"
         ? "> filter projects --all"
-        : `> filter projects --tag=${filterConsoleValue[filter]}`;
+        : `> filter projects --tag=${projectFilterConsoleValue[filter]}`;
 
     runProjectExplorerLog([
       filterCommand,
@@ -178,7 +191,7 @@ export default function PortfolioConsoleLayout() {
   const activeCommand = isPortfolioCommand(status) ? status : null;
 
   return (
-    <div className="min-h-screen w-full flex flex-col md:flex-row overflow-x-hidden bg-zinc-50 dark:bg-zinc-900 print:block print:min-h-0 print:bg-white">
+    <div className="min-h-screen w-full flex flex-col overflow-x-hidden bg-zinc-50 dark:bg-zinc-900 md:h-screen md:min-h-0 md:flex-row print:block print:h-auto print:min-h-0 print:bg-white">
       {/* Left panel (Console) */}
       <section className="w-full h-[42svh] min-h-[280px] max-h-[420px] flex-shrink-0 md:h-screen md:max-h-none md:min-h-0 md:w-[36%] print:hidden">
         <ConsolePanel
@@ -192,7 +205,7 @@ export default function PortfolioConsoleLayout() {
       </section>
 
       {/* Right panel (Portfolio Visual) */}
-      <main className="custom-scrollbar-light flex-1 w-full min-h-[58svh] overflow-y-auto md:h-screen md:min-h-0 md:w-[64%] print:block print:h-auto print:min-h-0 print:w-full print:overflow-visible">
+      <main className="custom-scrollbar-light min-h-[58svh] min-w-0 flex-1 w-full overflow-x-hidden overflow-y-auto md:h-full md:min-h-0 md:w-[64%] print:block print:h-auto print:min-h-0 print:w-full print:overflow-visible">
         <PortfolioPreview
           status={status}
           projectExplorerBusy={projectExplorerBusy}
