@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 function SkeletonBlock({ className }: { className?: string }) {
   return (
     <motion.div
-      className={`rounded-md bg-zinc-200 ${className ?? ""}`}
+      className={`rounded-md bg-tx3/20 ${className ?? ""}`}
       animate={{ opacity: [0.35, 0.7, 0.35] }}
       transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
     />
@@ -16,7 +16,7 @@ function SkeletonCard({ delay = 0 }: { delay?: number }) {
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.4, ease: "easeOut" }}
-      className="rounded-xl border border-zinc-200/80 bg-white p-4"
+      className="rounded-lg border border-line bg-card p-4"
     >
       <SkeletonBlock className="h-2 w-14 mb-3" />
       <SkeletonBlock className="h-3.5 w-3/4 mb-2" />
@@ -45,7 +45,7 @@ export default function BootingPreview() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.3 }}
-          className="text-sm font-semibold text-zinc-800"
+          className="text-sm font-semibold text-tx1"
         >
           Preparing preview environment
         </motion.span>
@@ -53,7 +53,7 @@ export default function BootingPreview() {
           {[0, 1, 2].map((i) => (
             <motion.span
               key={i}
-              className="w-1.5 h-1.5 rounded-full bg-zinc-400 inline-block"
+              className="w-1.5 h-1.5 rounded-full bg-tx3 inline-block"
               animate={{ opacity: [0.25, 1, 0.25] }}
               transition={{
                 duration: 1.2,
@@ -133,10 +133,10 @@ export default function BootingPreview() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.4 }}
-        className="mt-6 h-1 rounded-full bg-zinc-200 overflow-hidden"
+        className="mt-6 h-1 rounded-full bg-tx3/20 overflow-hidden"
       >
         <motion.div
-          className="h-full rounded-full bg-zinc-400"
+          className="h-full rounded-full bg-tx3"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}

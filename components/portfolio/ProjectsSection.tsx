@@ -14,6 +14,7 @@ import ProjectDetail from "./ProjectDetail";
 import ProjectFilters from "./ProjectFilters";
 
 interface ProjectsSectionProps {
+  searchQuery?: string;
   consoleBusy?: boolean;
   onProjectSelect?: (project: Project) => void;
   onProjectFilter?: (filter: ProjectFilterId, resultCount: number) => void;
@@ -42,6 +43,7 @@ function getFilteredProjects(filterId: ProjectFilterId) {
 }
 
 export default function ProjectsSection({
+  searchQuery = "",
   consoleBusy = false,
   onProjectSelect,
   onProjectFilter,
@@ -51,7 +53,12 @@ export default function ProjectsSection({
   );
   const [activeFilter, setActiveFilter] = useState<ProjectFilterId>("all");
 
-  const filteredProjects = getFilteredProjects(activeFilter);
+  const filteredByTag = getFilteredProjects(activeFilter);
+  const filteredProjects = searchQuery
+    ? filteredByTag.filter((p) =>
+        p.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : filteredByTag;
   const selectedProject =
     filteredProjects.find((project) => project.id === selectedProjectId) ??
     filteredProjects[0] ??
@@ -97,19 +104,19 @@ export default function ProjectsSection({
     >
       <motion.header variants={projectItemVariants} className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-xs text-zinc-500 shadow-sm">
+          <span className="rounded-full border border-line bg-card px-3 py-1 font-mono text-xs text-tx2 shadow-sm">
             projects.json
           </span>
-          <span className="font-mono text-[11px] text-zinc-500">
+          <span className="font-mono text-[11px] text-tx2">
             {filteredProjects.length}/{projects.length} deployments indexed
           </span>
         </div>
 
         <div className="space-y-1">
-          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl">
+          <h2 className="text-2xl font-extrabold tracking-tight text-tx1 sm:text-3xl">
             Project Explorer
           </h2>
-          <p className="max-w-2xl text-sm leading-relaxed text-zinc-500">
+          <p className="max-w-2xl text-sm leading-relaxed text-tx2">
             Select a project to inspect scope, role and shipped work.
           </p>
         </div>
@@ -149,7 +156,7 @@ export default function ProjectsSection({
           </AnimatePresence>
 
           {filteredProjects.length === 0 && (
-            <div className="rounded-2xl border border-dashed border-zinc-200 bg-white p-5 text-sm text-zinc-500">
+            <div className="rounded-lg border border-dashed border-line bg-card p-5 text-sm text-tx2">
               No projects match this filter yet.
             </div>
           )}

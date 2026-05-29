@@ -26,7 +26,7 @@ export default function HeroSection() {
       {/* Build successful badge */}
       <motion.span
         variants={sectionItemVariants}
-        className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-200/60 bg-emerald-50/60 px-3 py-1 text-xs font-medium text-emerald-700"
+        className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-200/60 dark:border-emerald-700/60 bg-emerald-50/60 dark:bg-emerald-900/30 px-3 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-400"
       >
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
         Build successful
@@ -35,7 +35,7 @@ export default function HeroSection() {
       {/* Title */}
       <motion.h1
         variants={sectionItemVariants}
-        className="text-3xl font-extrabold tracking-tight text-zinc-900 sm:text-4xl"
+        className="text-3xl font-extrabold tracking-tight text-tx1 sm:text-4xl"
       >
         Agus Runtime listo.
       </motion.h1>
@@ -43,7 +43,7 @@ export default function HeroSection() {
       {/* Subtitle */}
       <motion.p
         variants={sectionItemVariants}
-        className="mt-2 max-w-md text-sm leading-relaxed text-zinc-500"
+        className="mt-2 max-w-md text-sm leading-relaxed text-tx2"
       >
         Perfil cargado, proyectos indexados y acciones de contacto listas.
       </motion.p>
@@ -51,7 +51,7 @@ export default function HeroSection() {
       {/* Description */}
       <motion.p
         variants={sectionItemVariants}
-        className="mt-4 max-w-sm text-xs leading-relaxed text-zinc-500"
+        className="mt-4 max-w-sm text-xs leading-relaxed text-tx2"
       >
         Trabajo conectando producto, interfaz, lógica, datos e integraciones para convertir ideas en sistemas web y mobile usables en escenarios reales.
       </motion.p>
@@ -61,16 +61,16 @@ export default function HeroSection() {
         variants={sectionItemVariants}
         className="mt-6 w-full space-y-2"
       >
-        <h3 className="text-xs font-medium text-zinc-500">
-          Runtime summary
-        </h3>
+          <h3 className="text-xs font-medium text-tx2">
+            Runtime summary
+          </h3>
         <dl className="grid grid-cols-2 gap-x-4 gap-y-2">
           {summaryItems.map((item) => (
             <div key={item.label}>
-              <dt className="text-[11px] font-medium text-zinc-500">
+              <dt className="text-[11px] font-medium text-tx2">
                 {item.label}
               </dt>
-              <dd className="mt-0.5 text-sm font-semibold tracking-tight text-zinc-900">
+              <dd className="mt-0.5 text-sm font-semibold tracking-tight text-tx1">
                 {item.value}
               </dd>
             </div>
@@ -81,7 +81,7 @@ export default function HeroSection() {
       {/* Console hint */}
       <motion.p
         variants={sectionItemVariants}
-        className="mt-5 text-[11px] leading-relaxed text-zinc-500"
+        className="mt-5 text-[11px] leading-relaxed text-tx2"
       >
         Usá la consola para explorar los módulos disponibles.
       </motion.p>

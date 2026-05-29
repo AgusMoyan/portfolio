@@ -22,7 +22,7 @@ export default function GeneratingPreview() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, delay: 0.05 }}
-        className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-emerald-200/60 bg-emerald-50/60 px-2.5 py-0.5 text-[10px] font-medium text-emerald-600 self-start"
+        className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-emerald-200/60 dark:border-emerald-700/60 bg-emerald-50/60 dark:bg-emerald-900/30 px-2.5 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-400 self-start"
       >
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
         Generating from profile data
@@ -35,9 +35,9 @@ export default function GeneratingPreview() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.15, duration: 0.35, ease: "easeOut" }}
-          className="flex-shrink-0 w-14 h-14 rounded-full bg-zinc-100 border border-zinc-200/80 flex items-center justify-center"
+          className="flex-shrink-0 w-14 h-14 rounded-full bg-panel border border-line flex items-center justify-center"
         >
-          <span className="text-lg font-bold text-zinc-400">
+          <span className="text-lg font-bold text-tx3">
             {profile.name.charAt(0)}
           </span>
         </motion.div>
@@ -48,7 +48,7 @@ export default function GeneratingPreview() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.2, ease: "easeOut" }}
-            className="text-2xl font-extrabold tracking-tight text-zinc-900 mb-1"
+            className="text-2xl font-extrabold tracking-tight text-tx1 mb-1"
           >
             {profile.name}
           </motion.h1>
@@ -57,7 +57,7 @@ export default function GeneratingPreview() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: 0.35, ease: "easeOut" }}
-            className="text-sm text-zinc-500 mb-0.5"
+            className="text-sm text-tx2 mb-0.5"
           >
             {profile.role}
           </motion.p>
@@ -66,7 +66,7 @@ export default function GeneratingPreview() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: 0.45, ease: "easeOut" }}
-            className="text-xs text-zinc-400"
+            className="text-xs text-tx3"
           >
             {profile.location}
           </motion.p>
@@ -78,7 +78,7 @@ export default function GeneratingPreview() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, delay: 0.6, ease: "easeOut" }}
-        className="mt-4 max-w-prose text-xs leading-relaxed text-zinc-500"
+        className="mt-4 max-w-prose text-xs leading-relaxed text-tx2"
       >
         {profile.summary}
       </motion.p>
@@ -96,7 +96,7 @@ export default function GeneratingPreview() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.85 + i * 0.05, duration: 0.2 }}
-            className="rounded-md bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-600"
+            className="rounded-md bg-panel px-2 py-0.5 text-[11px] font-medium text-tx2"
           >
             {tag}
           </motion.span>

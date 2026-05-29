@@ -22,14 +22,14 @@ export default function GitLogSection() {
     >
       {/* Header */}
       <motion.header variants={sectionItemVariants} className="space-y-3">
-        <span className="inline-flex rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-[10px] text-zinc-500 shadow-sm">
+        <span className="inline-flex rounded-full border border-line bg-card px-3 py-1 font-mono text-[10px] text-tx2 shadow-sm">
           {eyebrow}
         </span>
         <div className="space-y-2">
-          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl">
+          <h2 className="text-2xl font-extrabold tracking-tight text-tx1 sm:text-3xl">
             {title}
           </h2>
-          <p className="max-w-2xl text-sm leading-relaxed text-zinc-500">
+          <p className="max-w-2xl text-sm leading-relaxed text-tx2">
             {description}
           </p>
         </div>
@@ -40,25 +40,25 @@ export default function GitLogSection() {
           <motion.div
             key={entry.hash}
             variants={sectionItemVariants}
-            className="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm"
+            className="rounded-lg border border-line bg-card p-4 shadow-sm"
           >
             {/* Hash + Year */}
             <div className="mb-1.5 flex items-center justify-between gap-3">
-              <span className="font-mono text-[11px] font-medium text-indigo-500">
+              <span className="font-mono text-[11px] font-medium text-accent">
                 {entry.hash}
               </span>
-              <span className="shrink-0 font-mono text-[11px] text-zinc-500">
+              <span className="shrink-0 font-mono text-[11px] text-tx2">
                 {entry.year}
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="text-sm font-semibold text-zinc-900">
+            <h3 className="text-sm font-semibold text-tx1">
               {entry.title}
             </h3>
 
             {/* Message */}
-            <p className="mt-1 text-[13px] leading-relaxed text-zinc-500">
+            <p className="mt-1 text-[13px] leading-relaxed text-tx2">
               {entry.message}
             </p>
 
@@ -68,7 +68,7 @@ export default function GitLogSection() {
                 {entry.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center rounded-md border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[10px] font-medium text-zinc-500"
+                    className="inline-flex items-center rounded-md border border-line bg-card px-2 py-0.5 font-mono text-[10px] font-medium text-tx2"
                   >
                     {tag}
                   </span>

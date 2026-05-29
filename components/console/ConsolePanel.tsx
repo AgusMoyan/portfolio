@@ -141,18 +141,17 @@ export default function ConsolePanel({
                 </ConsoleLine>
               </div>
 
-              {/* Generate button — mobile-primary, desktop-secondary */}
+              {/* Generate button — mobile-only */}
               {onGenerate && (
-                <div className="ml-5 mt-4">
+                <div className="ml-5 mt-4 sm:hidden">
                   <button
                     type="button"
                     onClick={onGenerate}
                     disabled={isRunning}
                     aria-label="Generate portfolio"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700/60 bg-zinc-900/50 px-5 py-2.5 text-xs font-medium text-zinc-200 transition hover:border-zinc-600 hover:text-zinc-100 active:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/60 disabled:opacity-40 disabled:pointer-events-none min-h-[44px] sm:min-h-0 sm:px-3 sm:py-1.5 sm:text-[11px] sm:text-zinc-400 sm:hover:text-zinc-300"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700/60 bg-zinc-900/50 px-5 py-2.5 text-xs font-medium text-zinc-200 transition hover:border-zinc-600 hover:text-zinc-100 active:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/60 disabled:opacity-40 disabled:pointer-events-none min-h-[44px]"
                   >
-                    <span className="sm:hidden">{interactivePrompt.generateLabel}</span>
-                    <span className="hidden sm:inline">Generate</span>
+                    {interactivePrompt.generateLabel}
                   </button>
                 </div>
               )}

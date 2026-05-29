@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 function SkeletonPulse({ className }: { className?: string }) {
   return (
     <motion.div
-      className={`rounded-md bg-zinc-200 ${className ?? ""}`}
+      className={`rounded-md bg-tx3/20 ${className ?? ""}`}
       animate={{ opacity: [0.4, 0.7, 0.4] }}
       transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
     />
@@ -20,7 +20,7 @@ export default function ScaffoldingPreview() {
       className="flex w-full flex-col px-1"
     >
       {/* Phase label */}
-      <span className="text-xs font-medium uppercase tracking-widest text-zinc-400 mb-6">
+      <span className="text-xs font-medium uppercase tracking-widest text-tx3 mb-6">
         Building preview components
       </span>
 
@@ -59,7 +59,7 @@ export default function ScaffoldingPreview() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.35, ease: "easeOut" }}
-            className="rounded-xl border border-zinc-200/80 bg-white p-5"
+            className="rounded-lg border border-line bg-card p-5"
           >
             <SkeletonPulse className="h-3 w-24 mb-3" />
             <SkeletonPulse className="h-5 w-3/4 mb-2" />
@@ -80,7 +80,7 @@ export default function ScaffoldingPreview() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + i * 0.08, duration: 0.35, ease: "easeOut" }}
-                className="rounded-xl border border-zinc-200/80 bg-white p-4"
+                className="rounded-lg border border-line bg-card p-4"
               >
                 <SkeletonPulse className="h-2 w-12 mb-3" />
                 <SkeletonPulse className="h-3.5 w-3/4 mb-2" />

@@ -27,9 +27,9 @@ export default function RevealingPreview() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.05, duration: 0.35, ease: "easeOut" }}
-          className="flex-shrink-0 w-16 h-16 rounded-full bg-zinc-100 border border-zinc-200/80 flex items-center justify-center"
+          className="flex-shrink-0 w-16 h-16 rounded-full bg-panel border border-line flex items-center justify-center"
         >
-          <span className="text-2xl font-bold text-zinc-400">
+          <span className="text-2xl font-bold text-tx3">
             {profile.name.charAt(0)}
           </span>
         </motion.div>
@@ -39,7 +39,7 @@ export default function RevealingPreview() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.4, ease: "easeOut" }}
-            className="text-2xl font-extrabold tracking-tight text-zinc-900 mb-1"
+            className="text-2xl font-extrabold tracking-tight text-tx1 mb-1"
           >
             {profile.name}
           </motion.h1>
@@ -47,7 +47,7 @@ export default function RevealingPreview() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.35, ease: "easeOut" }}
-            className="text-sm text-zinc-500"
+            className="text-sm text-tx2"
           >
             {profile.role}
           </motion.p>
@@ -55,7 +55,7 @@ export default function RevealingPreview() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.35, ease: "easeOut" }}
-            className="text-xs text-zinc-400 mt-0.5"
+            className="text-xs text-tx3 mt-0.5"
           >
             {profile.location}
           </motion.p>
@@ -71,7 +71,7 @@ export default function RevealingPreview() {
           {topTech.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="rounded-md bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-600"
+              className="rounded-md bg-panel px-2 py-0.5 text-[11px] font-medium text-tx2"
             >
               {tag}
             </span>
@@ -84,7 +84,7 @@ export default function RevealingPreview() {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.45, duration: 0.35, ease: "easeOut" }}
-        className="text-xs leading-relaxed text-zinc-500 mb-6 max-w-prose"
+        className="text-xs leading-relaxed text-tx2 mb-6 max-w-prose"
       >
         {profile.summary}
       </motion.p>
@@ -95,7 +95,7 @@ export default function RevealingPreview() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.3 }}
-          className="text-[10px] font-semibold uppercase tracking-widest text-zinc-400 mb-3"
+          className="text-[10px] font-semibold uppercase tracking-widest text-tx3 mb-3"
         >
           Featured Projects
         </motion.p>
@@ -110,17 +110,17 @@ export default function RevealingPreview() {
                 duration: 0.35,
                 ease: "easeOut",
               }}
-              className="rounded-xl border border-zinc-200/80 bg-white px-4 py-3"
+              className="rounded-lg border border-line bg-card px-4 py-3"
             >
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400 mb-0.5">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-tx3 mb-0.5">
                 {project.status === "production"
                   ? "Production"
                   : project.statusLabel ?? project.status}
               </p>
-              <p className="text-sm font-semibold text-zinc-900">
-                {project.name}
-              </p>
-              <p className="text-[11px] text-zinc-500 line-clamp-1">
+                <p className="text-sm font-semibold text-tx1">
+                  {project.name}
+                </p>
+                <p className="text-[11px] text-tx2 line-clamp-1">
                 {project.type}
               </p>
             </motion.div>
@@ -134,7 +134,7 @@ export default function RevealingPreview() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.3 }}
-          className="text-[10px] font-semibold uppercase tracking-widest text-zinc-400 mb-3"
+          className="text-[10px] font-semibold uppercase tracking-widest text-tx3 mb-3"
         >
           Stack
         </motion.p>
@@ -146,14 +146,14 @@ export default function RevealingPreview() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75 + li * 0.1, duration: 0.3 }}
             >
-              <p className="text-[10px] font-medium text-zinc-400 mb-1.5">
+                <p className="text-[10px] font-medium text-tx3 mb-1.5">
                 {layer.category}
               </p>
               <div className="flex flex-wrap gap-1">
                 {layer.items.slice(0, 4).map((item) => (
                   <span
                     key={item}
-                    className="rounded-md bg-zinc-50 px-1.5 py-0.5 text-[10px] font-medium text-zinc-500"
+                    className="rounded-md bg-panel px-1.5 py-0.5 text-[10px] font-medium text-tx2"
                   >
                     {item}
                   </span>
@@ -169,11 +169,11 @@ export default function RevealingPreview() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.1, duration: 0.4 }}
-        className="flex items-center gap-2 text-[10px] text-zinc-400 pb-1"
+        className="flex items-center gap-2 text-[10px] text-tx3 pb-1"
       >
-        <span className="h-px w-5 bg-zinc-200" />
+        <span className="h-px w-5 bg-line" />
         <span>scroll to explore</span>
-        <span className="h-px w-5 bg-zinc-200" />
+        <span className="h-px w-5 bg-line" />
       </motion.div>
     </motion.div>
   );

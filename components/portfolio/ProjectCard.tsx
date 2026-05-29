@@ -17,8 +17,8 @@ const buildLabels: Record<ProjectStatus, string> = {
 
 const statusDots: Record<ProjectStatus, string> = {
   production: "bg-emerald-500",
-  published: "bg-indigo-500",
-  internal: "bg-zinc-400",
+  published: "bg-accent",
+  internal: "bg-tx3",
   "production-ready": "bg-amber-400",
 };
 
@@ -78,10 +78,10 @@ export default function ProjectCard({
 
   return (
     <article
-      className={`group relative min-w-0 overflow-hidden rounded-2xl border text-left shadow-sm transition ${
+      className={`group relative min-w-0 overflow-hidden rounded-lg border text-left shadow-sm transition ${
         isActive
-          ? "border-indigo-300 bg-indigo-50/60 shadow-indigo-100/60"
-          : "border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-md"
+          ? "border-accent bg-accent/5 shadow-accent/10"
+          : "border-line bg-card hover:border-tx3 hover:shadow-md"
       }`}
     >
       <button
@@ -90,27 +90,27 @@ export default function ProjectCard({
         aria-pressed={isActive}
         aria-label={`Open project ${project.name}`}
         onClick={() => onSelect(project)}
-        className="flex w-full flex-col gap-2 p-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-400/60 disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex w-full flex-col gap-2 p-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/60 disabled:cursor-not-allowed disabled:opacity-60"
       >
         <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
-          <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-500">
+          <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-tx2">
             <span
               className={`h-1.5 w-1.5 rounded-full ${statusDots[project.status]}`}
             />
             {buildLabels[project.status]}
           </span>
           {isActive && (
-            <span className="rounded-full border border-indigo-200 bg-white px-2 py-0.5 font-mono text-[10px] font-semibold text-indigo-600">
+            <span className="rounded-full border border-accent/30 bg-card px-2 py-0.5 font-mono text-[10px] font-semibold text-accent">
               selected
             </span>
           )}
         </div>
 
         <div className="min-w-0">
-          <h3 className="break-words text-sm font-semibold tracking-tight text-zinc-950">
+          <h3 className="break-words text-sm font-semibold tracking-tight text-tx1">
             {project.name}
           </h3>
-          <p className="mt-1 line-clamp-1 text-[11px] font-medium text-zinc-500">
+          <p className="mt-1 line-clamp-1 text-[11px] font-medium text-tx2">
             {project.type}
           </p>
         </div>

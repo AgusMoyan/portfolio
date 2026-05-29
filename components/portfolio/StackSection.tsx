@@ -17,15 +17,15 @@ export default function StackSection() {
       aria-label="Tools by purpose"
     >
       <motion.header variants={sectionItemVariants} className="space-y-3">
-        <span className="text-xs text-zinc-500">
+        <span className="text-xs text-tx3">
           stack.layers
         </span>
 
         <div className="space-y-2">
-          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl">
+          <h2 className="text-2xl font-extrabold tracking-tight text-tx1 sm:text-3xl">
             Tools by purpose
           </h2>
-          <p className="max-w-2xl text-sm leading-relaxed text-zinc-500">
+          <p className="max-w-2xl text-sm leading-relaxed text-tx2">
             Las herramientas que uso según la capa del producto que estoy construyendo.
           </p>
         </div>
@@ -36,19 +36,19 @@ export default function StackSection() {
           <motion.div
             key={category.category}
             variants={sectionItemVariants}
-            className="rounded-xl border border-zinc-200/80 bg-white px-4 py-3.5 shadow-sm"
+            className="rounded-lg border border-line bg-card px-4 py-3.5 shadow-sm"
           >
-            <h3 className="text-sm font-semibold tracking-tight text-zinc-900">
+            <h3 className="text-sm font-semibold tracking-tight text-tx1">
               {category.category}
             </h3>
-            <p className="mt-1 text-xs leading-relaxed text-zinc-500">
+            <p className="mt-1 text-xs leading-relaxed text-tx2">
               {category.description}
             </p>
             <div className="mt-2.5 flex flex-wrap gap-1.5">
               {category.items.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-md bg-zinc-100/70 px-2 py-0.5 text-[11px] font-medium text-zinc-600"
+                  className="rounded-md bg-panel px-2 py-0.5 text-[11px] font-medium text-tx2"
                 >
                   {tech}
                 </span>
