@@ -233,6 +233,7 @@ export default function PortfolioConsoleLayout() {
               sequenceRunning={false}
               sequenceCompleted={false}
               onCommandSelect={() => {}}
+              onGenerate={startBootSequence}
             />
           </div>
         </motion.div>

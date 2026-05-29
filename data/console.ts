@@ -140,6 +140,7 @@ export const interactivePrompt = {
   message:
     "build me an interactive developer portfolio with a clean macOS preview",
   hint: "Press Enter to generate",
+  generateLabel: "Generate portfolio",
 };
 
 export const consoleStatusCopy: Record<
