@@ -135,10 +135,13 @@ export default function ConsolePanel({
               {/* Enter hint */}
               <div className="ml-5 flex items-center gap-2">
                 <span className="text-zinc-600 select-none">&rarr;</span>
-                <ConsoleLine variant="muted">{interactivePrompt.hint}</ConsoleLine>
+                <ConsoleLine variant="muted">
+                  <span className="hidden sm:inline">{interactivePrompt.hint}</span>
+                  <span className="sm:hidden">Tap Generate to start</span>
+                </ConsoleLine>
               </div>
 
-              {/* Generate button — mobile-friendly */}
+              {/* Generate button — mobile-primary, desktop-secondary */}
               {onGenerate && (
                 <div className="ml-5 mt-4">
                   <button
@@ -146,9 +149,10 @@ export default function ConsolePanel({
                     onClick={onGenerate}
                     disabled={isRunning}
                     aria-label="Generate portfolio"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700/60 bg-zinc-900/50 px-5 py-2.5 text-xs font-medium text-zinc-200 transition hover:border-zinc-600 hover:text-zinc-100 active:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/60 disabled:opacity-40 disabled:pointer-events-none min-h-[44px] md:min-h-0 md:px-3 md:py-1.5 md:text-[11px] md:text-zinc-400 md:hover:text-zinc-300"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700/60 bg-zinc-900/50 px-5 py-2.5 text-xs font-medium text-zinc-200 transition hover:border-zinc-600 hover:text-zinc-100 active:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/60 disabled:opacity-40 disabled:pointer-events-none min-h-[44px] sm:min-h-0 sm:px-3 sm:py-1.5 sm:text-[11px] sm:text-zinc-400 sm:hover:text-zinc-300"
                   >
-                    {interactivePrompt.generateLabel}
+                    <span className="sm:hidden">{interactivePrompt.generateLabel}</span>
+                    <span className="hidden sm:inline">Generate</span>
                   </button>
                 </div>
               )}
