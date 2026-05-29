@@ -6,7 +6,7 @@ import type { PortfolioCommand } from "../../types/portfolio";
 const commandGroups = [
   {
     label: "MAIN MODULES",
-    commands: ["projects", "about", "experience", "stack", "cv", "contact"],
+    commands: ["projects", "about", "experience", "stack", "contact"],
   },
   {
     label: "EXTRAS",

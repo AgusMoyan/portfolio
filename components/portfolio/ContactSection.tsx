@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
-import { Mail, Code2, Globe, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { Mail, Code2, Download, FileText, Globe, MessageCircle } from "lucide-react";
 import { contact } from "../../data/contact";
 import {
   sectionContainerVariants,
@@ -52,18 +53,18 @@ export default function ContactSection() {
       initial="hidden"
       animate="show"
       exit={sectionExit}
-      className="flex w-full max-w-sm flex-col items-center text-center"
+      className="flex w-full max-w-lg mx-auto flex-col items-center text-center"
     >
       <motion.span
         variants={sectionItemVariants}
-        className="mb-4 text-xs text-zinc-400 dark:text-zinc-500"
+        className="mb-4 text-xs text-zinc-500"
       >
         contact.config
       </motion.span>
 
       <motion.h2
         variants={sectionItemVariants}
-        className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 mb-7"
+        className="text-3xl font-extrabold tracking-tight text-zinc-900 mb-7"
       >
         Contacto
       </motion.h2>
@@ -77,22 +78,69 @@ export default function ContactSection() {
             target={channel.external ? "_blank" : undefined}
             rel={channel.external ? "noopener noreferrer" : undefined}
             aria-label={`Abrir ${channel.label}: ${channel.value}`}
-            className="flex items-center gap-4 rounded-xl px-4 py-3.5 text-left transition hover:bg-zinc-100/60 dark:hover:bg-zinc-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950"
+            className="flex items-center gap-4 rounded-xl px-4 py-3.5 text-left transition hover:bg-zinc-100/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-100/60 text-zinc-500 dark:bg-zinc-900/60 dark:text-zinc-400">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600">
               {iconMap[channel.label]}
             </span>
             <div className="flex flex-col">
-              <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
+              <span className="text-xs font-medium text-zinc-500">
                 {channel.label}
               </span>
-              <span className="break-all text-sm font-medium text-zinc-800 dark:text-zinc-200">
+              <span className="break-all text-sm font-medium text-zinc-800">
                 {channel.value}
               </span>
             </div>
           </motion.a>
         ))}
       </div>
+
+      <motion.div
+        variants={sectionItemVariants}
+        className="mt-5 w-full rounded-xl border border-zinc-200/80 bg-white px-4 py-3.5 text-left shadow-sm"
+      >
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold text-zinc-900">
+              CV
+            </p>
+            <p className="mt-0.5 text-[11px] leading-relaxed text-zinc-500">
+              Recurso secundario para recruiters, fuera del recorrido principal.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <Link
+              href="/cv"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            >
+              <FileText className="h-3.5 w-3.5" />
+              View CV
+            </Link>
+
+            {contact.cv.available ? (
+              <a
+                href={contact.cv.path}
+                download
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              >
+                <Download className="h-3.5 w-3.5" />
+                Download CV
+              </a>
+            ) : (
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
+                className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-zinc-100 px-3 py-1.5 text-xs font-semibold text-zinc-400"
+              >
+                <Download className="h-3.5 w-3.5" />
+                Download
+              </button>
+            )}
+          </div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 }

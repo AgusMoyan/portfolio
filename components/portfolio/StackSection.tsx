@@ -17,15 +17,15 @@ export default function StackSection() {
       aria-label="Tools by purpose"
     >
       <motion.header variants={sectionItemVariants} className="space-y-3">
-        <span className="text-xs text-zinc-400 dark:text-zinc-500">
+        <span className="text-xs text-zinc-500">
           stack.layers
         </span>
 
         <div className="space-y-2">
-          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">
+          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl">
             Tools by purpose
           </h2>
-          <p className="max-w-2xl text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+          <p className="max-w-2xl text-sm leading-relaxed text-zinc-500">
             Las herramientas que uso según la capa del producto que estoy construyendo.
           </p>
         </div>
@@ -36,18 +36,20 @@ export default function StackSection() {
           <motion.div
             key={category.category}
             variants={sectionItemVariants}
-            className="border-l-2 border-zinc-200 pl-4 dark:border-zinc-700"
+            className="rounded-xl border border-zinc-200/80 bg-white px-4 py-3.5 shadow-sm"
           >
-            <h3 className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
+            <h3 className="text-sm font-semibold tracking-tight text-zinc-900">
               {category.category}
             </h3>
-            <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
+            <p className="mt-1 text-xs leading-relaxed text-zinc-500">
               {category.description}
             </p>
-            <div className="mt-2 flex flex-wrap gap-x-1 gap-y-0.5 text-xs text-zinc-500 dark:text-zinc-400">
-              {category.items.map((tech, i) => (
-                <span key={tech}>
-                  {i > 0 && <span className="mr-1 text-zinc-300 dark:text-zinc-600">/</span>}
+            <div className="mt-2.5 flex flex-wrap gap-1.5">
+              {category.items.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-md bg-zinc-100/70 px-2 py-0.5 text-[11px] font-medium text-zinc-600"
+                >
                   {tech}
                 </span>
               ))}

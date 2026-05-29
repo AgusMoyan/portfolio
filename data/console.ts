@@ -96,22 +96,12 @@ export const commandConfig: Record<
       "Rendering career timeline",
     ],
   },
-  cv: {
-    label: "/cv",
-    hint: "inline document",
-    sequence: [
-      "Reading cv.document.ts",
-      "Loading ES / EN versions",
-      "Formatting professional document",
-      "Rendering inline CV",
-      "Download action ready",
-    ],
-  },
   contact: {
     label: "/contact",
     hint: "contact actions",
     sequence: [
       "Reading contact.config",
+      "Preparing recruiter shortcuts",
       "Enabling contact actions",
       "Rendering contact panel",
     ],
@@ -145,12 +135,19 @@ export const commandConfig: Record<
   },
 };
 
+export const interactivePrompt = {
+  command: "agus --generate portfolio --interactive",
+  message:
+    "build me an interactive developer portfolio with a clean macOS preview",
+  hint: "Press Enter to generate",
+};
+
 export const consoleStatusCopy: Record<
   PortfolioStatus,
   { label: string; text: string }
 > = {
-  idle: { label: "idle", text: "ready — press enter to run profile" },
-  booting: { label: "booting", text: "running profile boot sequence" },
+  idle: { label: "idle", text: "ready — press enter to generate" },
+  booting: { label: "generating", text: "generating interactive portfolio" },
   ready: { label: "ready", text: "profile loaded — awaiting next command" },
   about: { label: "about", text: "about section loaded — choose another command" },
   projects: {
@@ -162,7 +159,6 @@ export const consoleStatusCopy: Record<
     label: "experience",
     text: "experience section loaded — choose another command",
   },
-  cv: { label: "cv", text: "cv panel loaded — choose another command" },
   contact: { label: "contact", text: "contact panel loaded — choose another command" },
   stats: { label: "receipt", text: "receipt loaded — choose another command" },
   gitLog: { label: "git-log", text: "git log loaded — choose another command" },

@@ -8,10 +8,10 @@ interface ProjectTechBadgeProps {
 }
 
 const variantClasses: Record<ProjectTechBadgeVariant, string> = {
-  tech: "border-zinc-200 bg-zinc-50 text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400",
-  tag: "border-indigo-200/80 bg-indigo-50/70 text-indigo-700 dark:border-indigo-900/70 dark:bg-indigo-950/30 dark:text-indigo-300",
+  tech: "border-zinc-200/80 bg-white text-zinc-700",
+  tag: "border-indigo-200/80 bg-indigo-50/70 text-indigo-700",
   muted:
-    "border-zinc-200/80 bg-white text-zinc-500 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-500",
+    "border-zinc-200/80 bg-zinc-50 text-zinc-600",
 };
 
 export default function ProjectTechBadge({

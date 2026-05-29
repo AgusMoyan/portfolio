@@ -28,14 +28,14 @@ export default function AchievementsSection() {
     >
       {/* Header */}
       <motion.header variants={sectionItemVariants} className="space-y-3">
-        <span className="inline-flex rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-[10px] text-zinc-500 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400">
+        <span className="inline-flex rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-[10px] text-zinc-500 shadow-sm">
           achievements.log
         </span>
         <div className="space-y-2">
-          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">
+          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl">
             Logros únicos
           </h2>
-          <p className="max-w-2xl text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+          <p className="max-w-2xl text-sm leading-relaxed text-zinc-500">
             No son métricas. Son momentos que definieron mi forma de construir.
           </p>
         </div>
@@ -46,25 +46,25 @@ export default function AchievementsSection() {
           <motion.div
             key={badge.title}
             variants={sectionItemVariants}
-            className="rounded-xl border border-zinc-200 bg-white/70 p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-950/70"
+            className="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm"
           >
             <div className="mb-2.5 flex items-center gap-2.5">
               <span
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-zinc-200 bg-white text-sm dark:border-zinc-700 dark:bg-zinc-900"
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-zinc-200 bg-white text-sm"
                 aria-hidden="true"
               >
                 {iconByTitle[badge.title] ?? "★"}
               </span>
               <div className="min-w-0">
-                <h3 className="truncate text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                <h3 className="truncate text-sm font-semibold text-zinc-900">
                   {badge.title}
                 </h3>
               </div>
             </div>
-            <p className="text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400">
+            <p className="text-[13px] leading-relaxed text-zinc-500">
               {badge.description}
             </p>
-            <span className="mt-2 inline-block font-mono text-[10px] text-zinc-400 dark:text-zinc-600">
+            <span className="mt-2 inline-block font-mono text-[10px] text-zinc-500">
               {badge.project}
             </span>
           </motion.div>

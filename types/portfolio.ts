@@ -3,7 +3,6 @@ export const portfolioCommands = [
   "about",
   "experience",
   "stack",
-  "cv",
   "contact",
   "stats",
   "gitLog",

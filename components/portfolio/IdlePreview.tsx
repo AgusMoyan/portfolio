@@ -1,6 +1,4 @@
 import { motion } from "motion/react";
-import { idlePreviewCopy } from "../../data/console";
-import FakeEnterButton from "../console/FakeEnterButton";
 
 interface IdlePreviewProps {
   onEnter: () => void;
@@ -15,27 +13,27 @@ export default function IdlePreview({ onEnter }: IdlePreviewProps) {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="flex flex-col items-center justify-center text-center max-w-md w-full"
     >
-      <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 mb-2">
-        {idlePreviewCopy.title}
-      </h1>
-      <p className="text-sm font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-6">
-        {idlePreviewCopy.subtitle}
+      <div className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-[11px] font-medium text-zinc-400 mb-5">
+        Preview
+      </div>
+
+      <p className="text-sm text-zinc-500 leading-relaxed max-w-[200px]">
+        Preview waiting for generation
       </p>
 
-      <div className="h-[1px] w-16 bg-zinc-200 dark:bg-zinc-800 mx-auto mb-6" />
+      <div className="mt-8 flex items-center gap-1.5">
+        <span className="h-1 w-1 rounded-full bg-zinc-300" />
+        <span className="h-1 w-1 rounded-full bg-zinc-300" />
+        <span className="h-1 w-1 rounded-full bg-zinc-300" />
+      </div>
 
-      <p className="text-zinc-500 dark:text-zinc-400 text-sm mb-3">
-        {idlePreviewCopy.instruction}{" "}
-        <span className="font-semibold text-zinc-700 dark:text-zinc-300 font-mono">
-          {idlePreviewCopy.emphasizedKey}
-        </span>{" "}
-        {idlePreviewCopy.instructionSuffix}
-      </p>
-      <p className="text-xs text-zinc-400 dark:text-zinc-500 leading-relaxed max-w-xs mb-8">
-        {idlePreviewCopy.description}
-      </p>
-
-      <FakeEnterButton onClick={onEnter} disabled={false} />
+      <button
+        type="button"
+        onClick={onEnter}
+        className="mt-6 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-xs font-medium text-zinc-500 transition hover:border-zinc-300 hover:text-zinc-700"
+      >
+        Press Enter to start
+      </button>
     </motion.div>
   );
 }

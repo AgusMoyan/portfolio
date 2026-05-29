@@ -107,7 +107,7 @@ function BulletList({ items }: { items: string[] }) {
 
 function CvBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="rounded-md border border-zinc-200 bg-zinc-50 px-2 py-0.5 text-[10px] font-medium text-zinc-600 print:border-zinc-300 print:bg-white">
+    <span className="rounded-md border border-zinc-200/80 bg-white px-2 py-0.5 text-[10px] font-medium text-zinc-700 print:border-zinc-300">
       {children}
     </span>
   );
@@ -234,7 +234,7 @@ export default function CvDocument({ cv }: CvDocumentProps) {
             {cv.languages.map((language) => (
               <span
                 key={`${language.language}-${language.level}`}
-                className="rounded-md border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-medium text-zinc-700 print:border-zinc-300 print:bg-white"
+                className="rounded-md border border-zinc-200/80 bg-white px-2.5 py-1 text-xs font-medium text-zinc-700 print:border-zinc-300"
               >
                 {language.language}: {language.level}
               </span>

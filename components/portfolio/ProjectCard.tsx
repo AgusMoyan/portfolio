@@ -80,8 +80,8 @@ export default function ProjectCard({
     <article
       className={`group relative min-w-0 overflow-hidden rounded-2xl border text-left shadow-sm transition ${
         isActive
-          ? "border-indigo-300 bg-indigo-50/40 shadow-indigo-100/60 dark:border-indigo-800/80 dark:bg-indigo-950/20 dark:shadow-none"
-          : "border-zinc-200 bg-white/80 hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950/80 dark:hover:border-zinc-700 dark:hover:shadow-none"
+          ? "border-indigo-300 bg-indigo-50/60 shadow-indigo-100/60"
+          : "border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-md"
       }`}
     >
       <button
@@ -93,24 +93,24 @@ export default function ProjectCard({
         className="flex w-full flex-col gap-2 p-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-400/60 disabled:cursor-not-allowed disabled:opacity-60"
       >
         <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
-          <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-500">
+          <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-500">
             <span
               className={`h-1.5 w-1.5 rounded-full ${statusDots[project.status]}`}
             />
             {buildLabels[project.status]}
           </span>
           {isActive && (
-            <span className="rounded-full border border-indigo-200 bg-white px-2 py-0.5 font-mono text-[10px] font-semibold text-indigo-600 dark:border-indigo-800 dark:bg-zinc-950 dark:text-indigo-300">
+            <span className="rounded-full border border-indigo-200 bg-white px-2 py-0.5 font-mono text-[10px] font-semibold text-indigo-600">
               selected
             </span>
           )}
         </div>
 
         <div className="min-w-0">
-          <h3 className="break-words text-sm font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+          <h3 className="break-words text-sm font-semibold tracking-tight text-zinc-950">
             {project.name}
           </h3>
-          <p className="mt-1 line-clamp-1 text-[11px] font-medium text-zinc-500 dark:text-zinc-400">
+          <p className="mt-1 line-clamp-1 text-[11px] font-medium text-zinc-500">
             {project.type}
           </p>
         </div>

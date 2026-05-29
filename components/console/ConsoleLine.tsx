@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 import { twMerge } from "tailwind-merge";
 
 interface ConsoleLineProps {
@@ -6,6 +7,11 @@ interface ConsoleLineProps {
   variant?: "default" | "muted" | "command" | "success" | "accent" | "warning";
   className?: string;
 }
+
+const lineVariants = {
+  hidden: { opacity: 0, y: 4 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export default function ConsoleLine({
   children,
@@ -22,7 +28,11 @@ export default function ConsoleLine({
   };
 
   return (
-    <div
+    <motion.div
+      variants={lineVariants}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.2, ease: "easeOut" }}
       className={twMerge(
         "font-mono text-sm leading-6 tracking-normal whitespace-pre-wrap",
         variantStyles[variant],
@@ -30,6 +40,6 @@ export default function ConsoleLine({
       )}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

@@ -36,11 +36,11 @@ export default function CvSection() {
     >
       <motion.div
         variants={sectionItemVariants}
-        className="cv-actions print:hidden flex w-full flex-col gap-3 rounded-2xl border border-zinc-200 bg-white/90 p-3 shadow-sm dark:border-zinc-800 dark:bg-zinc-950/90 sm:flex-row sm:items-center sm:justify-between"
+        className="cv-actions print:hidden flex w-full flex-col gap-3 rounded-2xl border border-zinc-200 bg-white p-3 shadow-sm sm:flex-row sm:items-center sm:justify-between"
       >
         <div className="flex flex-wrap items-center gap-2">
           <CvLanguageToggle activeLanguage={language} onChange={setLanguage} />
-          <span className="font-mono text-[11px] text-zinc-400 dark:text-zinc-600">
+          <span className="font-mono text-[11px] text-zinc-500">
             inline cv.document.ts
           </span>
         </div>
@@ -52,7 +52,7 @@ export default function CvSection() {
                 href={contact.cv.path}
                 download
                 aria-label="Descargar CV en PDF"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-800 shadow-sm transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-200 dark:focus-visible:ring-offset-zinc-950 dark:hover:bg-zinc-900"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-800 shadow-sm transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
                 <Download className="h-3.5 w-3.5" />
                 Descargar PDF
@@ -63,7 +63,7 @@ export default function CvSection() {
                 disabled
                 aria-disabled="true"
                 aria-label="PDF próximamente"
-                className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-zinc-100 px-3 py-2 text-xs font-semibold text-zinc-400 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-600"
+                className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-zinc-100 px-3 py-2 text-xs font-semibold text-zinc-400 shadow-sm"
               >
                 <Download className="h-3.5 w-3.5" />
                 PDF próximamente
@@ -73,7 +73,7 @@ export default function CvSection() {
               type="button"
               onClick={handlePrint}
               aria-label="Imprimir o guardar CV como PDF"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-zinc-900 px-3 py-2 text-xs font-semibold text-zinc-50 shadow-sm transition hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white active:scale-[0.98] dark:bg-zinc-100 dark:text-zinc-950 dark:focus-visible:ring-offset-zinc-950 dark:hover:bg-white"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-800 shadow-sm transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white active:scale-[0.98]"
             >
               <Printer className="h-3.5 w-3.5" />
               Imprimir / Guardar PDF
@@ -81,7 +81,7 @@ export default function CvSection() {
           </div>
 
           {!isPdfAvailable && (
-            <p className="max-w-xs text-[11px] leading-relaxed text-zinc-400 dark:text-zinc-600">
+            <p className="max-w-xs text-[11px] leading-relaxed text-zinc-500">
               También podés usar Imprimir / Guardar PDF para exportar esta versión.
             </p>
           )}

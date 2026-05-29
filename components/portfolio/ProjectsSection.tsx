@@ -97,19 +97,19 @@ export default function ProjectsSection({
     >
       <motion.header variants={projectItemVariants} className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-xs text-zinc-500 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400">
+          <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-xs text-zinc-500 shadow-sm">
             projects.json
           </span>
-          <span className="font-mono text-[11px] text-zinc-400 dark:text-zinc-600">
+          <span className="font-mono text-[11px] text-zinc-500">
             {filteredProjects.length}/{projects.length} deployments indexed
           </span>
         </div>
 
         <div className="space-y-1">
-          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">
+          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl">
             Project Explorer
           </h2>
-          <p className="max-w-2xl text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+          <p className="max-w-2xl text-sm leading-relaxed text-zinc-500">
             Select a project to inspect scope, role and shipped work.
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function ProjectsSection({
       <div className="grid w-full gap-5 lg:grid-cols-[minmax(210px,0.68fr)_minmax(0,1.32fr)]">
         <motion.div
           variants={projectItemVariants}
-          className="custom-scrollbar-light min-w-0 space-y-3 lg:max-h-[calc(100svh-230px)] lg:overflow-y-auto lg:pr-1"
+          className="min-w-0 space-y-3"
         >
           <AnimatePresence initial={false} mode="popLayout">
             {filteredProjects.map((project) => (
@@ -149,7 +149,7 @@ export default function ProjectsSection({
           </AnimatePresence>
 
           {filteredProjects.length === 0 && (
-            <div className="rounded-2xl border border-dashed border-zinc-200 bg-white/70 p-5 text-sm text-zinc-500 dark:border-zinc-800 dark:bg-zinc-950/70 dark:text-zinc-400">
+            <div className="rounded-2xl border border-dashed border-zinc-200 bg-white p-5 text-sm text-zinc-500">
               No projects match this filter yet.
             </div>
           )}
