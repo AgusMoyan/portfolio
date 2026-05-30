@@ -52,6 +52,30 @@ export default function PortfolioConsoleLayout() {
   const isCommandRunningRef = useRef(false);
   const isProjectExplorerLogRunningRef = useRef(false);
   const [layoutMode, setLayoutMode] = useState<"intro" | "workspace">("intro");
+  const initialSectionRef = useRef<string | null>(null);
+
+  // Read ?section= param on mount
+  useEffect(() => {
+    const section = new URLSearchParams(window.location.search).get("section");
+    if (section && isPortfolioCommand(section as PortfolioStatus)) {
+      initialSectionRef.current = section;
+      hasStartedRef.current = true;
+      setLayoutMode("workspace");
+      setConsoleLines([`> ${commandConfig[section as PortfolioCommand].label}`, `${section} section loaded`]);
+      setStatus(section as PortfolioCommand);
+    }
+  }, []);
+
+  // Sync status to URL
+  useEffect(() => {
+    if (initialSectionRef.current) return;
+    if (isPortfolioCommand(status) || status === "ready") {
+      const url = isPortfolioCommand(status)
+        ? `/?section=${status}`
+        : "/";
+      window.history.replaceState(null, "", url);
+    }
+  }, [status]);
 
   const sequence = usePortfolioSequence({
     script: useMemo(() => createTerminalScript(), []),
@@ -191,6 +215,13 @@ export default function PortfolioConsoleLayout() {
     ]);
   }
 
+  const goHome = useCallback(() => {
+    if (effectiveStatus === "idle" || effectiveStatus === "booting") return;
+    isCommandRunningRef.current = false;
+    setRunningCommand(null);
+    setStatus("ready");
+  }, [effectiveStatus]);
+
   function handleProjectSelect(project: Project) {
     runProjectExplorerLog([
       project.consoleCommand,
@@ -275,6 +306,8 @@ export default function PortfolioConsoleLayout() {
               previewPhase={effectivePreviewPhase}
               projectExplorerBusy={projectExplorerBusy}
               onEnter={startBootSequence}
+              onHome={goHome}
+              onNavigate={runCommand}
               onProjectFilter={handleProjectFilter}
               onProjectSelect={handleProjectSelect}
             />

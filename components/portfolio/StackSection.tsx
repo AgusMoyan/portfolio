@@ -1,3 +1,6 @@
+"use client";
+
+import { useMemo } from "react";
 import { motion } from "motion/react";
 import { stack } from "../../data/stack";
 import {
@@ -6,7 +9,27 @@ import {
   sectionItemVariants,
 } from "./animation";
 
-export default function StackSection() {
+interface StackSectionProps {
+  searchQuery?: string;
+}
+
+export default function StackSection({ searchQuery = "" }: StackSectionProps) {
+  const filtered = useMemo(() => {
+    if (!searchQuery) return stack;
+    const q = searchQuery.toLowerCase();
+    return stack
+      .map((cat) => ({
+        ...cat,
+        items: cat.items.filter((t) => t.toLowerCase().includes(q)),
+      }))
+      .filter(
+        (cat) =>
+          cat.items.length > 0 ||
+          cat.category.toLowerCase().includes(q) ||
+          cat.description.toLowerCase().includes(q),
+      );
+  }, [searchQuery]);
+
   return (
     <motion.section
       variants={sectionContainerVariants}
@@ -31,8 +54,20 @@ export default function StackSection() {
         </div>
       </motion.header>
 
-      <div className="mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
-        {stack.map((category) => (
+      <motion.div variants={sectionItemVariants} className="mt-4 flex items-center gap-2 text-[11px] text-tx3">
+        <span>{filtered.reduce((a, c) => a + c.items.length, 0)} tools</span>
+        {searchQuery && (
+          <>
+            <span className="text-tx3">·</span>
+            <span>
+              matching &ldquo;{searchQuery}&rdquo;
+            </span>
+          </>
+        )}
+      </motion.div>
+
+      <div className="mt-3 grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
+        {filtered.map((category) => (
           <motion.div
             key={category.category}
             variants={sectionItemVariants}
@@ -57,6 +92,15 @@ export default function StackSection() {
           </motion.div>
         ))}
       </div>
+
+      {filtered.length === 0 && searchQuery && (
+        <motion.p
+          variants={sectionItemVariants}
+          className="mt-8 text-center text-[11px] text-tx3"
+        >
+          No tools match &ldquo;{searchQuery}&rdquo;
+        </motion.p>
+      )}
     </motion.section>
   );
 }

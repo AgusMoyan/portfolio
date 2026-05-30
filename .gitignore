@@ -19,7 +19,8 @@
 
 # production
 /build
-
+/references
+AGENTS.md
 # misc
 .DS_Store
 *.pem

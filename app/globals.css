@@ -11,6 +11,7 @@
   --panel: #F5F5F7;
   --line: rgba(0, 0, 0, 0.08);
   --accent: #007AFF;
+  --hover: rgba(0, 0, 0, 0.04);
 }
 
 @theme inline {
@@ -23,8 +24,10 @@
   --color-panel: var(--panel);
   --color-line: var(--line);
   --color-accent: var(--accent);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-hover: var(--hover);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,13 +41,39 @@
     --panel: #1C1C1E;
     --line: rgba(255, 255, 255, 0.08);
     --accent: #0A84FF;
+    --hover: rgba(255, 255, 255, 0.06);
   }
+}
+
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --tx1: #F5F5F7;
+  --tx2: #98989D;
+  --tx3: #636366;
+  --card: #2C2C2E;
+  --panel: #1C1C1E;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #0A84FF;
+  --hover: rgba(255, 255, 255, 0.06);
+}
+
+:root.light {
+  --background: #ffffff;
+  --foreground: #171717;
+  --tx1: #1D1D1F;
+  --tx2: #6E6E73;
+  --tx3: #AEAEB2;
+  --card: #FFFFFF;
+  --panel: #F5F5F7;
+  --line: rgba(0, 0, 0, 0.08);
+  --accent: #007AFF;
+  --hover: rgba(0, 0, 0, 0.04);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .custom-scrollbar {

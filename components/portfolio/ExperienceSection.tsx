@@ -1,3 +1,6 @@
+"use client";
+
+import { useMemo } from "react";
 import { motion } from "motion/react";
 import { experience, experienceMilestones } from "../../data/experience";
 import {
@@ -6,11 +9,39 @@ import {
   timelineItemVariants,
 } from "./animation";
 
+interface ExperienceSectionProps {
+  searchQuery?: string;
+}
+
 function getMeta(location?: string, mode?: string) {
   return [location, mode].filter(Boolean).join(" · ");
 }
 
-export default function ExperienceSection() {
+function matches(q: string, ...fields: string[]) {
+  return fields.some((f) => f.toLowerCase().includes(q));
+}
+
+export default function ExperienceSection({ searchQuery = "" }: ExperienceSectionProps) {
+  const filtered = useMemo(() => {
+    if (!searchQuery) return experience;
+    const q = searchQuery.toLowerCase();
+    return experience.filter(
+      (exp) =>
+        matches(q, exp.role, exp.company, exp.summary, ...exp.bullets) ||
+        exp.tags?.some((t) => t.toLowerCase().includes(q)),
+    );
+  }, [searchQuery]);
+
+  const filteredMilestones = useMemo(() => {
+    if (!searchQuery) return experienceMilestones;
+    const q = searchQuery.toLowerCase();
+    return experienceMilestones.filter(
+      (m) =>
+        matches(q, m.title, m.summary) ||
+        m.tags?.some((t) => t.toLowerCase().includes(q)),
+    );
+  }, [searchQuery]);
+
   return (
     <motion.section
       variants={projectContainerVariants}
@@ -35,8 +66,20 @@ export default function ExperienceSection() {
         </div>
       </motion.header>
 
-      <div className="relative mt-6 w-full pl-5 before:absolute before:left-[7px] before:top-2 before:h-[calc(100%-16px)] before:w-px before:bg-line">
-        {experience.map((exp) => (
+      <motion.div variants={timelineItemVariants} className="mt-4 flex items-center gap-2 text-[11px] text-tx3">
+        <span>{filtered.length} roles</span>
+        {searchQuery && (
+          <>
+            <span className="text-tx3">·</span>
+            <span>
+              matching &ldquo;{searchQuery}&rdquo;
+            </span>
+          </>
+        )}
+      </motion.div>
+
+      <div className="relative mt-3 w-full pl-5 before:absolute before:left-[7px] before:top-2 before:h-[calc(100%-16px)] before:w-px before:bg-line">
+        {filtered.map((exp) => (
           <motion.div
             key={exp.id}
             variants={timelineItemVariants}
@@ -95,13 +138,22 @@ export default function ExperienceSection() {
         ))}
       </div>
 
-      {experienceMilestones.length > 0 && (
+      {filtered.length === 0 && searchQuery && (
+        <motion.p
+          variants={timelineItemVariants}
+          className="mt-8 text-center text-[11px] text-tx3"
+        >
+          No experience entries match &ldquo;{searchQuery}&rdquo;
+        </motion.p>
+      )}
+
+      {filteredMilestones.length > 0 && (
         <motion.div variants={timelineItemVariants} className="mt-6 space-y-3">
           <h3 className="text-xs font-medium text-tx2">
             Selected milestones
           </h3>
           <div className="grid gap-3 sm:grid-cols-2">
-            {experienceMilestones.map((milestone) => (
+            {filteredMilestones.map((milestone) => (
               <div
                 key={milestone.id}
                 className="rounded-lg border border-line bg-card px-4 py-3 shadow-sm"

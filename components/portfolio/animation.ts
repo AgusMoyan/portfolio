@@ -1,17 +1,19 @@
 import type { Variants } from "motion/react";
 
 export const sectionContainerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, x: 30 },
   show: {
     opacity: 1,
+    x: 0,
     transition: { staggerChildren: 0.08 },
   },
 };
 
 export const projectContainerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, x: 30 },
   show: {
     opacity: 1,
+    x: 0,
     transition: { staggerChildren: 0.1 },
   },
 };
@@ -45,6 +47,6 @@ export const timelineItemVariants: Variants = {
 
 export const sectionExit = {
   opacity: 0,
-  y: -12,
-  transition: { duration: 0.25 },
+  x: -30,
+  transition: { duration: 0.2, ease: "easeOut" as const },
 };

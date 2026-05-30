@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, MotionConfig } from "motion/react";
-import type { PortfolioStatus } from "../../types/portfolio";
+import type { PortfolioCommand, PortfolioStatus } from "../../types/portfolio";
 import type { Project, ProjectFilterId } from "../../types/projects";
 import type { PreviewPhase } from "./interactive/types";
 import IdlePreview from "./IdlePreview";
@@ -17,13 +17,16 @@ import ContactSection from "./ContactSection";
 import StatsReceiptSection from "./StatsReceiptSection";
 import GitLogSection from "./GitLogSection";
 import AchievementsSection from "./AchievementsSection";
-import { Search } from "lucide-react";
+import CommandPalette from "./CommandPalette";
+import { Search, Command, Sun, Moon } from "lucide-react";
 
 interface PortfolioPreviewProps {
   status: PortfolioStatus;
   previewPhase?: PreviewPhase;
   projectExplorerBusy?: boolean;
   onEnter: () => void;
+  onHome?: () => void;
+  onNavigate?: (command: PortfolioCommand) => void;
   onProjectSelect?: (project: Project) => void;
   onProjectFilter?: (filter: ProjectFilterId, resultCount: number) => void;
 }
@@ -54,6 +57,8 @@ export default function PortfolioPreview({
   previewPhase = "idle",
   projectExplorerBusy = false,
   onEnter,
+  onHome,
+  onNavigate,
   onProjectSelect,
   onProjectFilter,
 }: PortfolioPreviewProps) {
@@ -62,6 +67,35 @@ export default function PortfolioPreview({
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const [collapsed, setCollapsed] = useState(false);
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(() =>
+    document.documentElement.classList.contains("dark")
+  );
+
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    if (stored === "dark" || stored === "light") {
+      document.documentElement.classList.remove("dark", "light");
+      document.documentElement.classList.add(stored);
+      setDarkMode(stored === "dark");
+    }
+  }, []);
+
+  const toggleDark = useCallback(() => {
+    const html = document.documentElement;
+    const isDark = html.classList.contains("dark");
+    html.classList.remove("dark", "light");
+    if (isDark) {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+      setDarkMode(false);
+    } else {
+      html.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setDarkMode(true);
+    }
+  }, []);
 
   useEffect(() => {
     const el = panelRef.current;
@@ -79,6 +113,19 @@ export default function PortfolioPreview({
       el.removeEventListener("focusout", onFocusOut);
     };
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        if (status === "ready" || isContent) {
+          setPaletteOpen((p) => !p);
+        }
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [status]);
 
   const handleSearchToggle = useCallback(() => {
     setSearchOpen((prev) => {
@@ -103,9 +150,10 @@ export default function PortfolioPreview({
     status === "stats" ||
     status === "gitLog" ||
     status === "achievements";
-  const isCentered = !isContent;
+  const isCentered = !isContent && status !== "ready";
   const isBootingPhase = status === "booting" && ["booting", "scaffolding", "generating", "revealing"].includes(previewPhase);
   const phaseInfo = phaseStatusLabels[previewPhase];
+  const canPalette = status === "ready" || isContent;
 
   const statusBarHint =
     previewPhase === "idle"
@@ -119,15 +167,14 @@ export default function PortfolioPreview({
             : previewPhase === "revealing"
               ? "assembling final preview..."
               : previewPhase === "completed"
-                ? "choose a section from the terminal"
+                ? canPalette ? "⌘K to search · choose a section from the terminal" : "choose a section from the terminal"
                 : "scroll — the rest writes itself";
 
   return (
     <div
       ref={panelRef}
       tabIndex={-1}
-      className="flex min-w-0 flex-col bg-panel outline-none md:h-full md:overflow-hidden"
-      style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+      className="flex min-w-0 flex-col bg-panel font-sans outline-none md:h-full md:overflow-hidden"
     >
       {/* macOS-style window container */}
       <div className="mx-3 mb-3 mt-3 flex flex-col rounded-[10px] border border-line bg-card shadow-[0_0_0_0.5px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.06),0_8px_30px_rgba(0,0,0,0.1)] md:flex-1 md:min-h-0 md:overflow-hidden md:mx-5 md:my-4">
@@ -137,30 +184,45 @@ export default function PortfolioPreview({
           className="flex shrink-0 cursor-default select-none items-center gap-3 border-b border-line bg-card/70 backdrop-blur-xl px-4 h-10"
         >
           <div className="flex items-center gap-[6px]" aria-label="Window controls">
-            <span className="group/tl1 relative h-3 w-3">
+            <button
+              type="button"
+              onClick={onHome}
+              aria-label="Close to dashboard"
+              className="group/tl1 relative h-3 w-3 cursor-pointer"
+            >
               <span
                 className={`absolute inset-0 rounded-full transition-all duration-150 group-hover/tl1:scale-110 ${
                   isWindowFocused ? "bg-[#FF5F57]" : "bg-[#CDCDCD]"
                 }`}
               />
               <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-100 group-hover/tl1:opacity-100 text-[9px] font-bold leading-none text-[rgba(0,0,0,0.45)]">✕</span>
-            </span>
-            <span className="group/tl2 relative h-3 w-3">
+            </button>
+            <button
+              type="button"
+              onClick={() => setCollapsed((c) => !c)}
+              aria-label="Minimize"
+              className="group/tl2 relative h-3 w-3 cursor-pointer"
+            >
               <span
                 className={`absolute inset-0 rounded-full transition-all duration-150 group-hover/tl2:scale-110 ${
                   isWindowFocused ? "bg-[#FEBC2E]" : "bg-[#CDCDCD]"
                 }`}
               />
               <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-100 group-hover/tl2:opacity-100 text-[9px] font-bold leading-none text-[rgba(0,0,0,0.45)]">−</span>
-            </span>
-            <span className="group/tl3 relative h-3 w-3">
+            </button>
+            <button
+              type="button"
+              onClick={() => document.documentElement.requestFullscreen?.().catch(() => {})}
+              aria-label="Maximize"
+              className="group/tl3 relative h-3 w-3 cursor-pointer"
+            >
               <span
                 className={`absolute inset-0 rounded-full transition-all duration-150 group-hover/tl3:scale-110 ${
                   isWindowFocused ? "bg-[#28C840]" : "bg-[#CDCDCD]"
                 }`}
               />
               <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-100 group-hover/tl3:opacity-100 text-[9px] font-bold leading-none text-[rgba(0,0,0,0.45)]">+</span>
-            </span>
+            </button>
           </div>
           <span className="text-xs font-semibold text-tx2 tracking-tight">
             Portfolio Preview
@@ -176,14 +238,39 @@ export default function PortfolioPreview({
         {status !== "idle" && status !== "booting" && (
           <div className="flex shrink-0 items-center justify-between border-b border-line bg-card/60 backdrop-blur-xl px-4 h-9">
             <div className="flex items-center gap-1.5 min-w-0">
-              <span className="text-[11px] font-medium text-tx3 select-none">Portfolio</span>
+              <button
+                type="button"
+                onClick={onHome}
+                className="text-[11px] font-medium text-tx3 transition hover:text-tx1 cursor-pointer select-none"
+              >
+                Portfolio
+              </button>
               <span className="text-[13px] text-tx3 select-none leading-none">›</span>
               <span className="text-[11px] font-medium text-tx1 truncate">
                 {toolbarContext[status]?.label ?? status}
               </span>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
+              {canPalette && (
+                <button
+                  type="button"
+                  onClick={() => setPaletteOpen(true)}
+                  aria-label="Open command palette"
+                  className="flex items-center gap-1 rounded-md px-1.5 py-1 text-[10px] text-tx3 transition hover:text-tx1 hover:bg-hover outline-none"
+                >
+                  <Command className="h-3 w-3" />
+                  <span className="hidden sm:inline">K</span>
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={toggleDark}
+                aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+                className="flex items-center justify-center rounded-md p-1 text-tx3 transition hover:text-tx1 hover:bg-hover outline-none"
+              >
+                {darkMode ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+              </button>
               <div
                 className={`flex items-center overflow-hidden transition-all duration-200 ease-out ${
                   searchOpen ? "w-48 opacity-100" : "w-0 opacity-0"
@@ -215,12 +302,16 @@ export default function PortfolioPreview({
 
         {/* Scrollable body */}
         <div
-          className={`overflow-x-hidden ${
+          className={`overflow-x-hidden transition-all duration-300 ${
+            collapsed ? "flex-none overflow-hidden" : "flex flex-col"
+          } ${
             isCentered ? "flex flex-col" : ""
           } md:flex-1 md:min-h-0 md:overflow-y-auto md:custom-scrollbar-light`}
         >
           <div
             className={`flex w-full flex-col items-center ${
+              collapsed ? "hidden" : ""
+            } ${
               isBootingPhase
                 ? "justify-start pt-6 sm:pt-8"
                 : isCentered
@@ -238,7 +329,9 @@ export default function PortfolioPreview({
                     ? "max-w-6xl"
                     : isContent
                       ? "max-w-3xl"
-                      : "max-w-lg p-6 min-h-[300px] sm:min-h-[340px] sm:p-8"
+                      : status === "ready"
+                        ? "max-w-5xl p-4 sm:p-6"
+                        : "max-w-lg p-6 min-h-[300px] sm:min-h-[340px] sm:p-8"
               }`}
             >
               <MotionConfig reducedMotion={process.env.NODE_ENV === "production" ? "user" : "never"}>
@@ -260,6 +353,7 @@ export default function PortfolioPreview({
                     {status === "ready" && (
                       <HeroSection
                         key="ready"
+                        onNavigate={onNavigate}
                       />
                     )}
                     {status === "about" && <AboutSection key="about" />}
@@ -272,9 +366,15 @@ export default function PortfolioPreview({
                         onProjectSelect={onProjectSelect}
                       />
                     )}
-                    {status === "stack" && <StackSection key="stack" />}
-                    {status === "experience" && <ExperienceSection key="experience" />}
-                    {status === "contact" && <ContactSection key="contact" />}
+                    {status === "stack" && (
+                      <StackSection key="stack" searchQuery={searchQuery} />
+                    )}
+                    {status === "experience" && (
+                      <ExperienceSection key="experience" searchQuery={searchQuery} />
+                    )}
+                    {status === "contact" && (
+                      <ContactSection key="contact" searchQuery={searchQuery} />
+                    )}
                     {status === "stats" && <StatsReceiptSection key="stats" />}
                     {status === "gitLog" && <GitLogSection key="gitLog" />}
                     {status === "achievements" && (
@@ -296,6 +396,16 @@ export default function PortfolioPreview({
           <span>{statusBarHint}</span>
         </div>
       </div>
+
+      {/* Command Palette */}
+      <CommandPalette
+        open={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
+        onNavigate={(cmd) => {
+          setPaletteOpen(false);
+          onNavigate?.(cmd);
+        }}
+      />
     </div>
   );
 }

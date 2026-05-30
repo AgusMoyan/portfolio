@@ -49,6 +49,22 @@ const cardTechnologyPriority = [
   "React",
 ] as const;
 
+const gradients: Record<string, string> = {
+  "2mmudanzas": "from-blue-500/20 via-cyan-500/10 to-transparent",
+  "udec-clinical-records": "from-emerald-500/20 via-teal-500/10 to-transparent",
+  "rcp-fundacion-udec": "from-rose-500/20 via-pink-500/10 to-transparent",
+  trustride: "from-amber-500/20 via-orange-500/10 to-transparent",
+};
+
+function getInitials(name: string) {
+  return name
+    .split(/[\s-]+/)
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
 function getVisibleTechnologies(project: Project) {
   const prioritized = cardTechnologyPriority.filter((technology) =>
     project.technologies.includes(technology)
@@ -84,13 +100,24 @@ export default function ProjectCard({
           : "border-line bg-card hover:border-tx3 hover:shadow-md"
       }`}
     >
+      {/* Gradient placeholder */}
+      <div
+        className={`pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-br ${
+          gradients[project.id] ?? "from-accent/10 via-transparent to-transparent"
+        }`}
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute right-3 top-3 select-none text-[28px] font-extrabold tracking-tight text-tx3/20" aria-hidden="true">
+        {getInitials(project.name)}
+      </div>
+
       <button
         type="button"
         disabled={disabled}
         aria-pressed={isActive}
         aria-label={`Open project ${project.name}`}
         onClick={() => onSelect(project)}
-        className="flex w-full flex-col gap-2 p-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/60 disabled:cursor-not-allowed disabled:opacity-60"
+        className="relative flex w-full flex-col gap-2 p-3 pt-8 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/60 disabled:cursor-not-allowed disabled:opacity-60"
       >
         <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
           <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-tx2">
