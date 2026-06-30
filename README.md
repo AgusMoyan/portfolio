@@ -1,6 +1,6 @@
 # Portfolio — Agustín Moyano
 
-Portfolio personal bilingüe (ES/EN) hecho con Next.js (App Router), TypeScript,
+Portfolio personal bilingüe (ES/EN) hecho con amor, Next.js (App Router), TypeScript,
 Tailwind CSS, next-intl, Framer Motion y next-themes. Single-page con scroll,
 modo claro/oscuro, detección automática de idioma y SEO por idioma.
 
