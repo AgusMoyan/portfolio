@@ -1,0 +1,84 @@
+{
+  "Metadata": {
+    "title": "Agustín Moyano — Full Stack Developer",
+    "description": "Desarrollador full stack (web y mobile). Construyo productos que resuelven problemas reales, con foco en React, Next.js y desarrollo mobile.",
+    "ogAlt": "Portfolio de Agustín Moyano, Full Stack Developer"
+  },
+  "Nav": {
+    "about": "Sobre mí",
+    "skills": "Stack",
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "freelance": "Soporte técnico",
+    "contact": "Contacto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "skipToContent": "Saltar al contenido",
+    "switchToEnglish": "Switch to English",
+    "switchToSpanish": "Cambiar a español",
+    "toggleTheme": "Cambiar tema",
+    "language": "Idioma",
+    "scrollTop": "Volver arriba"
+  },
+  "NotFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscás no existe o se movió.",
+    "back": "Volver al inicio"
+  },
+  "Hero": {
+    "available": "Disponible para nuevas oportunidades",
+    "role": "Full Stack Developer — Web & Mobile",
+    "valueProp": "Me gusta transformar ideas en software a medida — del concepto a producción, en web y mobile.",
+    "location": "Argentina · Remoto, presencial o reubicación",
+    "ctaProjects": "Ver proyectos",
+    "ctaContact": "Contacto",
+    "photoAlt": "Foto de Agustín Moyano"
+  },
+  "About": {
+    "title": "Sobre mí",
+    "eyebrow": "Perfil de desarrollador",
+    "contributionsTitle": "Áreas de contribución",
+    "freelanceNote": "También ofrezco soporte técnico freelance (mantenimiento y optimización) — más abajo."
+  },
+  "Skills": {
+    "title": "Herramientas por propósito",
+    "subtitle": "Las herramientas que uso según la capa del producto que estoy construyendo.",
+    "languagesTitle": "Idiomas"
+  },
+  "Projects": {
+    "title": "Proyectos destacados",
+    "subtitle": "Una selección de lo que construí, ordenada por relevancia.",
+    "role": "Rol",
+    "stack": "Stack",
+    "highlights": "Qué construí",
+    "viewDemo": "Ver demo",
+    "viewCode": "Ver código",
+    "atCompany": "En {company}"
+  },
+  "Experience": {
+    "title": "Experiencia laboral",
+    "subtitle": "Foco en impacto y resultados.",
+    "relatedProjects": "Proyectos relacionados: {projects}"
+  },
+  "Freelance": {
+    "title": "Soporte técnico freelance",
+    "subtitle": "Servicio complementario para quien necesita mantener su equipo a punto.",
+    "servicesTitle": "Servicios",
+    "toolsTitle": "Herramientas",
+    "testimonialsTitle": "Testimonios"
+  },
+  "Contact": {
+    "title": "Contacto",
+    "subtitle": "¿Trabajamos juntos? Escribime por el canal que prefieras.",
+    "downloadCv": "Descargar CV (PDF)",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
+    "whatsappLabel": "WhatsApp"
+  },
+  "Footer": {
+    "rights": "Todos los derechos reservados.",
+    "builtWith": "Hecho con Next.js y Tailwind CSS.",
+    "viewSource": "Código de este sitio"
+  }
+}

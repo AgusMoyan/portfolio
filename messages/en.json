@@ -1,0 +1,84 @@
+{
+  "Metadata": {
+    "title": "Agustín Moyano — Full Stack Developer",
+    "description": "Full stack developer (web & mobile). I build products that solve real problems, focused on React, Next.js and mobile development.",
+    "ogAlt": "Agustín Moyano's portfolio, Full Stack Developer"
+  },
+  "Nav": {
+    "about": "About",
+    "skills": "Stack",
+    "projects": "Projects",
+    "experience": "Experience",
+    "freelance": "Tech support",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content",
+    "switchToEnglish": "Switch to English",
+    "switchToSpanish": "Cambiar a español",
+    "toggleTheme": "Toggle theme",
+    "language": "Language",
+    "scrollTop": "Back to top"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has moved.",
+    "back": "Back to home"
+  },
+  "Hero": {
+    "available": "Open to new opportunities",
+    "role": "Full Stack Developer — Web & Mobile",
+    "valueProp": "I love turning ideas into custom software — from concept to production, on web and mobile.",
+    "location": "Argentina · Remote, on-site or relocation",
+    "ctaProjects": "View projects",
+    "ctaContact": "Contact",
+    "photoAlt": "Photo of Agustín Moyano"
+  },
+  "About": {
+    "title": "About me",
+    "eyebrow": "Developer profile",
+    "contributionsTitle": "Contribution areas",
+    "freelanceNote": "I also offer freelance tech support (maintenance and optimization) — see below."
+  },
+  "Skills": {
+    "title": "Tools by purpose",
+    "subtitle": "The tools I use depending on the product layer I'm building.",
+    "languagesTitle": "Languages"
+  },
+  "Projects": {
+    "title": "Featured projects",
+    "subtitle": "A selection of what I've built, ordered by relevance.",
+    "role": "Role",
+    "stack": "Stack",
+    "highlights": "What I built",
+    "viewDemo": "View demo",
+    "viewCode": "View code",
+    "atCompany": "At {company}"
+  },
+  "Experience": {
+    "title": "Work experience",
+    "subtitle": "Focused on impact and results.",
+    "relatedProjects": "Related projects: {projects}"
+  },
+  "Freelance": {
+    "title": "Freelance tech support",
+    "subtitle": "A complementary service for those who need to keep their gear in top shape.",
+    "servicesTitle": "Services",
+    "toolsTitle": "Tools",
+    "testimonialsTitle": "Testimonials"
+  },
+  "Contact": {
+    "title": "Contact",
+    "subtitle": "Let's work together — reach out through whichever channel you prefer.",
+    "downloadCv": "Download CV (PDF)",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
+    "whatsappLabel": "WhatsApp"
+  },
+  "Footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js and Tailwind CSS.",
+    "viewSource": "Source code"
+  }
+}

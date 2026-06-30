@@ -1,0 +1,9 @@
+# Decisión explícita de qué deps pueden correr build scripts (política de
+# supply-chain de pnpm: sin esto, los builds ignorados son error duro).
+# sharp -> optimización de imágenes de Next; unrs-resolver -> resolver del
+# linter. @swc/core y @parcel/watcher no hacen falta: Next trae su toolchain.
+allowBuilds:
+  '@parcel/watcher': false
+  '@swc/core': false
+  sharp: true
+  unrs-resolver: true
