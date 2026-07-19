@@ -138,4 +138,42 @@ export const projects: Project[] = [
       "https://play.google.com/store/apps/details?id=ar.com.fundacionudec.RCPFundacionUdec",
     company: "Luz Consulting",
   },
+  {
+    slug: "biosyntech",
+    name: "Biosyntech",
+    description: {
+      es: "Sitio institucional en producción para Biosyntech, empresa de insumos e instrumental médico para ortopedia y traumatología. Presenta la empresa y su catálogo de productos, y canaliza las consultas comerciales por WhatsApp y formulario de contacto.",
+      en: "Production institutional site for Biosyntech, a medical supplies and surgical instruments company for orthopedics and traumatology. It showcases the company and its product catalog, and channels commercial inquiries through WhatsApp and a contact form.",
+    },
+    role: {
+      es: "Desarrollo front end: landing completa, catálogo de productos, formulario de contacto e integración con WhatsApp.",
+      en: "Front end development: full landing page, product catalog, contact form and WhatsApp integration.",
+    },
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Web3Forms"],
+    highlights: [
+      {
+        es: "Catálogo de productos por categorías: osteosíntesis, prótesis, instrumental de artroscopía, insumos médicos y material descartable.",
+        en: "Product catalog by category: osteosynthesis, prostheses, arthroscopy instruments, medical supplies and disposables.",
+      },
+      {
+        es: "Integración con WhatsApp: botón flotante y acceso al catálogo completo por mensaje directo.",
+        en: "WhatsApp integration: floating button and full catalog access via direct message.",
+      },
+      {
+        es: "Formulario de contacto para consultas comerciales.",
+        en: "Contact form for commercial inquiries.",
+      },
+      {
+        es: "Secciones institucionales: sobre nosotros, qué ofrecemos y por qué elegirnos.",
+        en: "Institutional sections: about us, what we offer and why choose us.",
+      },
+      {
+        es: "Sitio responsive en producción, con imágenes optimizadas.",
+        en: "Responsive site in production, with optimized images.",
+      },
+    ],
+    images: ["/projects/Bio.png", "/projects/Bio1.png"],
+    demoUrl: "https://www.biosyntech.com.ar/",
+    company: "Freelance",
+  },
 ];

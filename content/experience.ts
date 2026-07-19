@@ -66,5 +66,6 @@ export const experience: ExperienceItem[] = [
         en: "Developed communication, analysis and problem-solving skills.",
       },
     ],
+    relatedProjects: ["Biosyntech"],
   },
 ];
