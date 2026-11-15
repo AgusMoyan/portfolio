@@ -219,6 +219,37 @@ test.describe("Coordinación con stakeholders en proyectos", () => {
   }
 });
 
+test.describe("Formación académica", () => {
+  const casos = [
+    {
+      idioma: "español",
+      path: "/es",
+      titulo: "Formación",
+      carrera: "Ingeniería en Sistemas de Información",
+    },
+    {
+      idioma: "inglés",
+      path: "/en",
+      titulo: "Education",
+      carrera: "Information Systems Engineering",
+    },
+  ];
+
+  for (const { idioma, path, titulo, carrera } of casos) {
+    test(`"Sobre mí" muestra la carrera en la UTN en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const about = page.locator("#about");
+      await expect(
+        about.getByRole("heading", { level: 3, name: titulo }),
+      ).toBeVisible();
+      await expect(about.getByText(carrera)).toBeVisible();
+      await expect(about.getByText(/UTN/)).toBeVisible();
+    });
+  }
+});
+
 test.describe("Descarga de CV por idioma", () => {
   test("en español sirve el PDF -es", async ({ page }) => {
     await page.goto("/es");

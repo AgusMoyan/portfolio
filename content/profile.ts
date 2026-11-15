@@ -1,4 +1,4 @@
-import type { LocalizedString, Pillar } from "./types";
+import type { EducationItem, LocalizedString, Pillar } from "./types";
 
 /** Frase de apertura de "Sobre mí" (declaración fuerte). */
 export const aboutIntro: LocalizedString = {
@@ -57,4 +57,19 @@ export const contributionAreas: LocalizedString[] = [
   { es: "Integraciones de API", en: "API integrations" },
   { es: "Auth y permisos", en: "Auth & permissions" },
   { es: "Coordinación de proyectos", en: "Project coordination" },
+];
+
+/** Formación académica (bloque discreto dentro de "Sobre mí"). */
+export const education: EducationItem[] = [
+  {
+    degree: {
+      es: "Ingeniería en Sistemas de Información",
+      en: "Information Systems Engineering",
+    },
+    institution: {
+      es: "Universidad Tecnológica Nacional (UTN), La Plata",
+      en: "National Technological University (UTN), La Plata",
+    },
+    status: { es: "En curso, etapa inicial", en: "In progress, early stage" },
+  },
 ];

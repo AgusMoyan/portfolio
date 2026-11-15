@@ -21,6 +21,13 @@ export type Skill = {
   icon: string;
 };
 
+export type EducationItem = {
+  degree: LocalizedString;
+  institution: LocalizedString;
+  /** Estado tal como está confirmado (sin fechas ni materias no verificadas). */
+  status: LocalizedString;
+};
+
 export type SkillGroup = {
   id: string;
   title: LocalizedString;
