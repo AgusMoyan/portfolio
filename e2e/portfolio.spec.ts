@@ -250,6 +250,28 @@ test.describe("Formación académica", () => {
   }
 });
 
+test.describe("Herramientas de coordinación en el Stack", () => {
+  const casos = [
+    { idioma: "español", path: "/es", grupo: "Coordinación & colaboración" },
+    { idioma: "inglés", path: "/en", grupo: "Coordination & collaboration" },
+  ];
+
+  for (const { idioma, path, grupo } of casos) {
+    test(`el Stack incluye el grupo de coordinación con Asana en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const skills = page.locator("#skills");
+      await expect(
+        skills.getByRole("heading", { level: 3, name: grupo }),
+      ).toBeVisible();
+      await expect(
+        skills.getByRole("listitem").filter({ hasText: /^Asana$/ }),
+      ).toBeVisible();
+    });
+  }
+});
+
 test.describe("Descarga de CV por idioma", () => {
   test("en español sirve el PDF -es", async ({ page }) => {
     await page.goto("/es");
