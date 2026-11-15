@@ -38,6 +38,54 @@ test.describe("Contenido por idioma", () => {
   });
 });
 
+test.describe("Posicionamiento", () => {
+  const casos = [
+    {
+      idioma: "español",
+      path: "/es",
+      rol: "Full Stack Developer | Coordinación Técnica de Proyectos IT",
+      area: "Coordinación de proyectos",
+      ubicacion: "La Plata, Argentina · Remoto, híbrido en CABA o reubicación",
+    },
+    {
+      idioma: "inglés",
+      path: "/en",
+      rol: "Full Stack Developer | IT Technical Project Coordination",
+      area: "Project coordination",
+      ubicacion:
+        "La Plata, Argentina · Remote, hybrid in Buenos Aires (CABA) or relocation",
+    },
+  ];
+
+  for (const { idioma, path, rol, area, ubicacion } of casos) {
+    test(`el Hero muestra desarrollo + coordinación técnica en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      await expect(page.locator("#hero").getByText(rol)).toBeVisible();
+    });
+
+    test(`las áreas de contribución incluyen coordinación en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      await expect(
+        page
+          .locator("#about")
+          .getByRole("listitem")
+          .filter({ hasText: new RegExp(`^${area}$`) }),
+      ).toBeVisible();
+    });
+
+    test(`la ubicación indica La Plata e híbrido en CABA en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      await expect(page.locator("#hero").getByText(ubicacion)).toBeVisible();
+    });
+  }
+});
+
 test.describe("Descarga de CV por idioma", () => {
   test("en español sirve el PDF -es", async ({ page }) => {
     await page.goto("/es");

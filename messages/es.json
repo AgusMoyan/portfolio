@@ -27,16 +27,16 @@
   },
   "Hero": {
     "available": "Disponible para nuevas oportunidades",
-    "role": "Full Stack Developer — Web & Mobile",
-    "valueProp": "Me gusta transformar ideas en software a medida — del concepto a producción, en web y mobile.",
-    "location": "Argentina · Remoto, presencial o reubicación",
+    "role": "Full Stack Developer | Coordinación Técnica de Proyectos IT",
+    "valueProp": "Construyo software web y mobile a medida para resolver problemas de negocio, y acompaño cada proyecto desde el análisis de requerimientos y la planificación de entregas hasta producción.",
+    "location": "La Plata, Argentina · Remoto, híbrido en CABA o reubicación",
     "ctaProjects": "Ver proyectos",
     "ctaContact": "Contacto",
     "photoAlt": "Foto de Agustín Moyano"
   },
   "About": {
     "title": "Sobre mí",
-    "eyebrow": "Perfil de desarrollador",
+    "eyebrow": "Perfil profesional",
     "contributionsTitle": "Áreas de contribución",
     "freelanceNote": "También ofrezco soporte técnico freelance (mantenimiento y optimización) — más abajo."
   },

@@ -27,16 +27,16 @@
   },
   "Hero": {
     "available": "Open to new opportunities",
-    "role": "Full Stack Developer — Web & Mobile",
-    "valueProp": "I love turning ideas into custom software — from concept to production, on web and mobile.",
-    "location": "Argentina · Remote, on-site or relocation",
+    "role": "Full Stack Developer | IT Technical Project Coordination",
+    "valueProp": "I build custom web and mobile software that solves business problems, and I support each project from requirements analysis and delivery planning through to production.",
+    "location": "La Plata, Argentina · Remote, hybrid in Buenos Aires (CABA) or relocation",
     "ctaProjects": "View projects",
     "ctaContact": "Contact",
     "photoAlt": "Photo of Agustín Moyano"
   },
   "About": {
     "title": "About me",
-    "eyebrow": "Developer profile",
+    "eyebrow": "Professional profile",
     "contributionsTitle": "Contribution areas",
     "freelanceNote": "I also offer freelance tech support (maintenance and optimization) — see below."
   },
