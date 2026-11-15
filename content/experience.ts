@@ -12,8 +12,8 @@ export const experience: ExperienceItem[] = [
     location: "La Plata, Argentina",
     employmentType: { es: "Part-time", en: "Part-time" },
     summary: {
-      es: "Además de desarrollar aplicaciones web y mobile, participo en la planificación y coordinación técnica de los proyectos, articulando el trabajo de diseño y desarrollo con las necesidades de cada cliente.",
-      en: "Besides building web and mobile apps, I take part in the planning and technical coordination of projects, aligning design and development work with each client's needs.",
+      es: "Combino el desarrollo de aplicaciones web y mobile con la coordinación técnica de los proyectos, desde el relevamiento con el cliente hasta la entrega.",
+      en: "I combine building web and mobile apps with the technical coordination of projects, from gathering requirements with the client to delivery.",
     },
     achievementGroups: [
       {
@@ -51,20 +51,16 @@ export const experience: ExperienceItem[] = [
         },
         items: [
           {
-            es: "Combino el desarrollo con la coordinación de tareas en equipos interdisciplinarios de unas cinco personas.",
-            en: "Combine development with task coordination in cross-functional teams of around five people.",
+            es: "Coordino el trabajo entre diseño y desarrollo sin dejar de programar.",
+            en: "Coordinate work between design and development while still writing code.",
           },
           {
-            es: "Colaboro en la estimación de tiempos y costos y en la organización de entregables.",
-            en: "Help estimate timelines and costs and organize deliverables.",
+            es: "Participo en el plan de entregas de cada proyecto y en su reorganización ante atrasos o cambios.",
+            en: "Take part in each project's delivery plan and in reorganizing it when delays or changes come up.",
           },
           {
-            es: "Sigo tareas, dependencias y bloqueos en Asana para mantener las entregas en curso.",
-            en: "Track tasks, dependencies and blockers in Asana to keep deliveries on course.",
-          },
-          {
-            es: "Participo, junto con otra persona, en decisiones sobre prioridades, plazos, costos y cambios de alcance.",
-            en: "Share decisions on priorities, timelines, costs and scope changes with another team member.",
+            es: "Comparto con otra persona las decisiones sobre prioridades, plazos y presupuesto.",
+            en: "Share decisions on priorities, timelines and budget with another team member.",
           },
         ],
       },
@@ -75,16 +71,16 @@ export const experience: ExperienceItem[] = [
         },
         items: [
           {
-            es: "Me comunico de forma directa con clientes, diseñadores y desarrolladores.",
-            en: "Communicate directly with clients, designers and developers.",
+            es: "Me comunico directamente con clientes, diseñadores y desarrolladores para alinear expectativas y avances.",
+            en: "Communicate directly with clients, designers and developers to align expectations and progress.",
           },
           {
-            es: "Relevo requerimientos y reglas de negocio para convertirlos en soluciones concretas.",
-            en: "Gather requirements and business rules and turn them into concrete solutions.",
+            es: "Traduzco necesidades de negocio en requerimientos y soluciones; por ejemplo, la fórmula de cotización de 2Mmudanzas.",
+            en: "Turn business needs into requirements and solutions — for example, the 2Mmudanzas quoting formula.",
           },
           {
-            es: "Colaboro ocasionalmente con el área comercial en consultas técnicas y en la evaluación de soluciones para clientes.",
-            en: "Occasionally support the sales team with technical questions and by evaluating solutions for clients.",
+            es: "Cuando hace falta, apoyo al área comercial evaluando la viabilidad técnica de soluciones para clientes.",
+            en: "When needed, support the sales team by assessing the technical feasibility of client solutions.",
           },
         ],
       },

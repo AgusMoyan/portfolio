@@ -1,21 +1,38 @@
 import { ImageResponse } from "next/og";
+import { hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/content/site";
 
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+const size = { width: 1200, height: 630 };
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function OgImage({
+/** Una sola imagen por idioma; existe para declarar el `alt` traducido. */
+export async function generateImageMetadata({
   params,
 }: {
   params: { locale: string };
 }) {
-  const { locale } = params;
+  // Corre como generateStaticParams (sin request): next-intl leería headers,
+  // así que el alt se toma directo del JSON de mensajes del idioma.
+  const locale = hasLocale(routing.locales, params.locale)
+    ? params.locale
+    : routing.defaultLocale;
+  const messages = (await import(`../../messages/${locale}.json`)).default;
+  return [
+    { id: "og", alt: messages.Metadata.ogAlt, size, contentType: "image/png" },
+  ];
+}
+
+export default async function OgImage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Hero" });
 
   return new ImageResponse(

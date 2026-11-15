@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "Agustín Moyano — Full Stack Developer · Coordinación Técnica de Proyectos IT",
-    "description": "Full Stack Developer web y mobile con experiencia en coordinación técnica de proyectos IT: planificación, análisis de requerimientos y comunicación con stakeholders.",
+    "title": "Agustín Moyano — Full Stack Developer · Coordinación de Proyectos IT",
+    "description": "Full Stack Developer web y mobile con experiencia en coordinación técnica de proyectos IT: planificación, requerimientos y comunicación con stakeholders.",
     "ogAlt": "Portfolio de Agustín Moyano, Full Stack Developer con experiencia en coordinación técnica de proyectos IT"
   },
   "Nav": {
@@ -55,7 +55,7 @@
     "highlights": "Qué construí",
     "caseTitle": "Caso de negocio",
     "caseProblem": "Problema de negocio",
-    "caseSolution": "Mi intervención",
+    "caseContribution": "Mi intervención",
     "caseResult": "Resultado",
     "viewDemo": "Ver demo",
     "viewCode": "Ver código",

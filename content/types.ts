@@ -43,7 +43,7 @@ export type SpokenLanguage = {
 /** Caso breve de negocio: qué problema había, qué hice y qué se logró. */
 export type CaseStudy = {
   problem: LocalizedString;
-  solution: LocalizedString;
+  contribution: LocalizedString;
   result: LocalizedString;
 };
 

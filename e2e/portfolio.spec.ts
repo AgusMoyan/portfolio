@@ -315,7 +315,7 @@ test.describe("SEO y metadatos", () => {
     {
       idioma: "español",
       path: "/es",
-      titulo: /Full Stack Developer.*Coordinación Técnica de Proyectos IT/,
+      titulo: /Full Stack Developer.*Coordinación de Proyectos IT/,
     },
     {
       idioma: "inglés",
@@ -330,6 +330,28 @@ test.describe("SEO y metadatos", () => {
     }) => {
       await page.goto(path);
       await expect(page).toHaveTitle(titulo);
+    });
+  }
+
+  for (const { idioma, path, alt } of [
+    {
+      idioma: "español",
+      path: "/es",
+      alt: /^Portfolio de Agustín Moyano, Full Stack Developer/,
+    },
+    {
+      idioma: "inglés",
+      path: "/en",
+      alt: /^Portfolio of Agustín Moyano, Full Stack Developer/,
+    },
+  ]) {
+    test(`la imagen OG tiene texto alternativo en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      await expect(
+        page.locator('meta[property="og:image:alt"]'),
+      ).toHaveAttribute("content", alt);
     });
   }
 

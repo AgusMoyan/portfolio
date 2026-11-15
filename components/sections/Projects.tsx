@@ -52,7 +52,7 @@ export function Projects() {
                       {(
                         [
                           ["caseProblem", project.caseStudy.problem],
-                          ["caseSolution", project.caseStudy.solution],
+                          ["caseContribution", project.caseStudy.contribution],
                           ["caseResult", project.caseStudy.result],
                         ] as const
                       ).map(([label, text]) => (
