@@ -192,6 +192,33 @@ test.describe("Caso 2Mmudanzas", () => {
   }
 });
 
+test.describe("Coordinación con stakeholders en proyectos", () => {
+  const casos = [
+    {
+      idioma: "español",
+      path: "/es",
+      validacion: /validados por la dirección de la Fundación/,
+    },
+    {
+      idioma: "inglés",
+      path: "/en",
+      validacion: /validated by the Foundation's leadership/,
+    },
+  ];
+
+  for (const { idioma, path, validacion } of casos) {
+    test(`RCP aclara que la dirección de la Fundación validó los contenidos en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const tarjeta = page.getByRole("article").filter({
+        has: page.getByRole("heading", { name: "RCP Fundación UDEC" }),
+      });
+      await expect(tarjeta.getByText(validacion)).toBeVisible();
+    });
+  }
+});
+
 test.describe("Descarga de CV por idioma", () => {
   test("en español sirve el PDF -es", async ({ page }) => {
     await page.goto("/es");

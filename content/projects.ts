@@ -15,8 +15,8 @@ export const projects: Project[] = [
       en: "Production booking platform for airport transfers (Palma de Mallorca ↔ Playa de Muro), with a public landing and a private admin panel. It solves the need for a reliable self-service booking flow, with confirmations, and reservation management for the staff.",
     },
     role: {
-      es: "Desarrollo full stack: landing pública, panel de administración, autenticación e integraciones.",
-      en: "Full stack development: public landing, admin panel, authentication and integrations.",
+      es: "Desarrollo full stack (landing pública, panel de administración, autenticación e integraciones) y participación en la planificación de entregables y el seguimiento de tareas y requerimientos, en colaboración con diseño y desarrollo.",
+      en: "Full stack development (public landing, admin panel, authentication and integrations), plus involvement in planning deliverables and tracking tasks and requirements, working with design and development.",
     },
     stack: [
       "Next.js",
@@ -120,14 +120,18 @@ export const projects: Project[] = [
       en: "Mobile app for CPR education and emergency response guidance, published on Google Play for Fundación UDEC. It addresses the need for a clear, fast-access guide from your phone, when most resources aren't designed for that.",
     },
     role: {
-      es: "Desarrollo mobile: contenido estructurado, simulador, builds y publicación.",
-      en: "Mobile development: structured content, simulator, builds and release.",
+      es: "Todo el desarrollo técnico de la app (contenido estructurado, simulador, builds y publicación) y coordinación con el equipo de diseño y la dirección de la Fundación sobre funcionalidades, entregables y recursos educativos.",
+      en: "All of the app's technical development (structured content, simulator, builds and release), plus coordination with the design team and the Foundation's leadership on features, deliverables and educational resources.",
     },
     stack: ["React Native", "Expo", "EAS Build", "Expo Updates", "TypeScript"],
     highlights: [
       {
-        es: "Publicada en Google Play con perfiles de EAS Build y actualizaciones OTA.",
-        en: "Published on Google Play with EAS Build profiles and OTA updates.",
+        es: "Publicada en Google Play con perfiles de EAS Build y actualizaciones OTA; superó las 1.000 descargas.",
+        en: "Published on Google Play with EAS Build profiles and OTA updates; it passed 1,000 downloads.",
+      },
+      {
+        es: "Coordiné la incorporación de los GIF que muestran las técnicas de RCP, una vez validados por la dirección de la Fundación, responsable de la exactitud de esos contenidos.",
+        en: "Coordinated adding the GIFs that show CPR techniques once they were validated by the Foundation's leadership, which was responsible for the accuracy of that content.",
       },
       {
         es: "Contenido de RCP estructurado: técnicas, síntomas, compresiones, estimulación y uso de DEA.",
@@ -160,8 +164,8 @@ export const projects: Project[] = [
       en: "Production institutional site for Biosyntech, a medical supplies and surgical instruments company for orthopedics and traumatology. It showcases the company and its product catalog, and channels commercial inquiries through WhatsApp and a contact form.",
     },
     role: {
-      es: "Desarrollo front end: landing completa, catálogo de productos, formulario de contacto e integración con WhatsApp.",
-      en: "Front end development: full landing page, product catalog, contact form and WhatsApp integration.",
+      es: "Desarrollo front end en colaboración con una diseñadora: landing completa, catálogo de productos, formulario de contacto e integración con WhatsApp.",
+      en: "Front end development in collaboration with a designer: full landing page, product catalog, contact form and WhatsApp integration.",
     },
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Web3Forms"],
     highlights: [
