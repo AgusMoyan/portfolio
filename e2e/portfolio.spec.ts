@@ -310,6 +310,48 @@ test.describe("Experiencia en Luz Consulting", () => {
   }
 });
 
+test.describe("SEO y metadatos", () => {
+  const casos = [
+    {
+      idioma: "español",
+      path: "/es",
+      titulo: /Full Stack Developer.*Coordinación Técnica de Proyectos IT/,
+    },
+    {
+      idioma: "inglés",
+      path: "/en",
+      titulo: /Full Stack Developer.*IT Project Coordination/,
+    },
+  ];
+
+  for (const { idioma, path, titulo } of casos) {
+    test(`el <title> refleja el posicionamiento en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      await expect(page).toHaveTitle(titulo);
+    });
+  }
+
+  test("el JSON-LD conserva el cargo y suma coordinación de proyectos", async ({
+    page,
+  }) => {
+    await page.goto("/es");
+    const raw = await page
+      .locator('script[type="application/ld+json"]')
+      .textContent();
+    const data = JSON.parse(raw ?? "{}");
+    expect(data.jobTitle).toBe("Full Stack Developer");
+    expect(data.knowsAbout).toEqual(
+      expect.arrayContaining([
+        "Software Development",
+        "Technical Project Coordination",
+        "Stakeholder Communication",
+      ]),
+    );
+  });
+});
+
 test.describe("Descarga de CV por idioma", () => {
   test("en español sirve el PDF -es", async ({ page }) => {
     await page.goto("/es");

@@ -12,6 +12,23 @@ export function JsonLd({ locale }: { locale: string }) {
     url: `${siteConfig.url}/${locale}`,
     image: `${siteConfig.url}/foto-perfil.png`,
     jobTitle: "Full Stack Developer",
+    knowsAbout: [
+      "Software Development",
+      "Full Stack Development",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "React Native",
+      "Technical Project Coordination",
+      "IT Project Coordination",
+      "Project Planning",
+      "Requirements Analysis",
+      "Stakeholder Communication",
+      "Risk Management",
+      "Asana",
+      "Kanban",
+    ],
     sameAs: [siteConfig.linkedin, siteConfig.github],
   };
 
