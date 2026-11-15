@@ -315,12 +315,12 @@ test.describe("SEO y metadatos", () => {
     {
       idioma: "español",
       path: "/es",
-      titulo: /Full Stack Developer.*Coordinación de Proyectos IT/,
+      titulo: /Full Stack Developer.*Coordinación Técnica de Proyectos IT/,
     },
     {
       idioma: "inglés",
       path: "/en",
-      titulo: /Full Stack Developer.*IT Project Coordination/,
+      titulo: /Full Stack Developer.*IT Technical Project Coordination/,
     },
   ];
 
