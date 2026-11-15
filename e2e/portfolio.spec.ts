@@ -161,6 +161,37 @@ test.describe("Cómo gestiono los proyectos", () => {
   }
 });
 
+test.describe("Caso 2Mmudanzas", () => {
+  const casos = [
+    {
+      idioma: "español",
+      path: "/es",
+      etiquetas: ["Problema de negocio", "Mi intervención", "Resultado"],
+    },
+    {
+      idioma: "inglés",
+      path: "/en",
+      etiquetas: ["Business problem", "My contribution", "Outcome"],
+    },
+  ];
+
+  for (const { idioma, path, etiquetas } of casos) {
+    test(`la tarjeta muestra problema, intervención y resultado en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const tarjeta = page
+        .getByRole("article")
+        .filter({ has: page.getByRole("heading", { name: "2Mmudanzas" }) });
+      for (const etiqueta of etiquetas) {
+        await expect(
+          tarjeta.getByText(etiqueta, { exact: true }),
+        ).toBeVisible();
+      }
+    });
+  }
+});
+
 test.describe("Descarga de CV por idioma", () => {
   test("en español sirve el PDF -es", async ({ page }) => {
     await page.goto("/es");

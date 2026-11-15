@@ -63,6 +63,20 @@ export const projects: Project[] = [
       es: "Desarrollo full stack: cotización pública, dashboard de administración, motor de precios y backend.",
       en: "Full stack development: public quoting flow, admin dashboard, pricing engine and backend.",
     },
+    caseStudy: {
+      problem: {
+        es: "El dueño de la empresa tenía dificultades para determinar correctamente el costo de sus cotizaciones, en especial los costos de ida y vuelta según la distancia de cada viaje.",
+        en: "The owner struggled to price quotes correctly, especially the outbound and return costs depending on the distance of each trip.",
+      },
+      solution: {
+        es: "En una reunión extensa con el cliente relevé cómo funciona el servicio, identifiqué las variables relevantes y desglosé las reglas de negocio. A partir de ese análisis funcional propuse y diseñé la fórmula de cálculo, la implementé y la integré al motor de cotizaciones.",
+        en: "In a long meeting with the client, I mapped out how the service works, identified the relevant variables and broke down the business rules. From that functional analysis, I proposed and designed the pricing formula, implemented it and integrated it into the quoting engine.",
+      },
+      result: {
+        es: "Se resolvió la dificultad para calcular los precios y la plataforma incorporó una lógica de cotización adaptada al modelo real del negocio.",
+        en: "The pricing problem was solved, and the platform now uses quoting logic adapted to how the business actually works.",
+      },
+    },
     stack: [
       "Next.js",
       "TypeScript",

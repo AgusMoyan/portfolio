@@ -33,6 +33,13 @@ export type SpokenLanguage = {
   level: LocalizedString;
 };
 
+/** Caso breve de negocio: qué problema había, qué hice y qué se logró. */
+export type CaseStudy = {
+  problem: LocalizedString;
+  solution: LocalizedString;
+  result: LocalizedString;
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -42,6 +49,8 @@ export type Project = {
   stack: string[];
   /** Puntos clave de lo construido (opcional). */
   highlights?: LocalizedString[];
+  /** Caso Problema → Intervención → Resultado. Sin métricas no documentadas. */
+  caseStudy?: CaseStudy;
   /** Una o más capturas. Si hay más de una, la card muestra un slider. */
   images: string[];
   /** "cover" (default) recorta a 16:9; "contain" muestra completa (ej: capturas mobile). */

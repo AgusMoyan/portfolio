@@ -52,6 +52,10 @@
     "role": "Role",
     "stack": "Stack",
     "highlights": "What I built",
+    "caseTitle": "Business case",
+    "caseProblem": "Business problem",
+    "caseSolution": "My contribution",
+    "caseResult": "Outcome",
     "viewDemo": "View demo",
     "viewCode": "View code",
     "atCompany": "At {company}"
