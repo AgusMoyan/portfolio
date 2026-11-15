@@ -11,6 +11,7 @@ const SECTIONS = [
   "skills",
   "projects",
   "experience",
+  "coordination",
   "freelance",
   "contact",
 ] as const;
@@ -62,7 +63,7 @@ export function Navbar() {
         </a>
 
         {/* Links de escritorio */}
-        <ul className="hidden items-center gap-6 md:flex">
+        <ul className="hidden items-center gap-6 lg:flex">
           {SECTIONS.map((id) => (
             <li key={id}>
               <a
@@ -84,7 +85,7 @@ export function Navbar() {
           {/* Botón de menú mobile */}
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border lg:hidden"
             aria-label={open ? t("closeMenu") : t("openMenu")}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -102,7 +103,7 @@ export function Navbar() {
 
       {/* Menú mobile desplegable */}
       {open ? (
-        <ul className="border-t border-border bg-background px-6 py-3 md:hidden">
+        <ul className="border-t border-border bg-background px-6 py-3 lg:hidden">
           {SECTIONS.map((id) => (
             <li key={id}>
               <a

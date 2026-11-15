@@ -9,6 +9,7 @@
     "skills": "Stack",
     "projects": "Proyectos",
     "experience": "Experiencia",
+    "coordination": "Coordinación",
     "freelance": "Soporte técnico",
     "contact": "Contacto",
     "openMenu": "Abrir menú",
@@ -59,6 +60,10 @@
     "title": "Experiencia laboral",
     "subtitle": "Foco en impacto y resultados.",
     "relatedProjects": "Proyectos relacionados: {projects}"
+  },
+  "Coordination": {
+    "title": "Cómo gestiono los proyectos",
+    "subtitle": "Además de desarrollar, participo en la planificación y el seguimiento de los proyectos, en equipos interdisciplinarios de unas cinco personas."
   },
   "Freelance": {
     "title": "Soporte técnico freelance",

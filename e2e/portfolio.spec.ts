@@ -86,6 +86,81 @@ test.describe("Posicionamiento", () => {
   }
 });
 
+test.describe("Cómo gestiono los proyectos", () => {
+  const casos = [
+    {
+      idioma: "español",
+      path: "/es",
+      titulo: "Cómo gestiono los proyectos",
+      link: "Coordinación",
+      abrirMenu: "Abrir menú",
+      bloques: [
+        "Planificación y seguimiento",
+        "Herramientas y metodologías",
+        "Costos, riesgos y alcance",
+        "Documentación y comunicación",
+      ],
+    },
+    {
+      idioma: "inglés",
+      path: "/en",
+      titulo: "How I manage projects",
+      link: "Coordination",
+      abrirMenu: "Open menu",
+      bloques: [
+        "Planning & tracking",
+        "Tools & methods",
+        "Costs, risks & scope",
+        "Documentation & communication",
+      ],
+    },
+  ];
+
+  for (const { idioma, path, titulo, link, abrirMenu, bloques } of casos) {
+    test(`la sección se muestra en ${idioma}`, async ({ page }) => {
+      await page.goto(path);
+      await expect(
+        page
+          .locator("#coordination")
+          .getByRole("heading", { level: 2, name: titulo }),
+      ).toBeVisible();
+    });
+
+    test(`muestra los cuatro bloques de gestión en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const seccion = page.locator("#coordination");
+      for (const bloque of bloques) {
+        await expect(
+          seccion.getByRole("heading", { level: 3, name: bloque }),
+        ).toBeVisible();
+      }
+    });
+
+    test(`el navbar enlaza a la sección en ${idioma}`, async ({ page }) => {
+      await page.goto(path);
+      await expect(
+        page.getByRole("link", { name: link, exact: true }),
+      ).toHaveAttribute("href", "#coordination");
+    });
+
+    test.describe("mobile", () => {
+      test.use({ viewport: { width: 375, height: 720 } });
+
+      test(`el menú mobile enlaza a la sección en ${idioma}`, async ({
+        page,
+      }) => {
+        await page.goto(path);
+        await page.getByRole("button", { name: abrirMenu }).click();
+        await expect(
+          page.getByRole("link", { name: link, exact: true }),
+        ).toHaveAttribute("href", "#coordination");
+      });
+    });
+  }
+});
+
 test.describe("Descarga de CV por idioma", () => {
   test("en español sirve el PDF -es", async ({ page }) => {
     await page.goto("/es");

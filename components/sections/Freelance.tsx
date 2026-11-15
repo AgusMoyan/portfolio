@@ -15,7 +15,7 @@ export function Freelance() {
   const locale = useLocale() as Locale;
 
   return (
-    <Section id="freelance" muted>
+    <Section id="freelance">
       <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
       {/* Servicios */}

@@ -67,6 +67,22 @@ export type ExperienceItem = {
   relatedProjects?: string[];
 };
 
+/** Etapas de un flujo de trabajo mostradas como pasos en línea (ej: columnas Kanban). */
+export type CoordinationFlow = {
+  label: LocalizedString;
+  steps: LocalizedString[];
+};
+
+/** Bloque de la sección "Cómo gestiono los proyectos". */
+export type CoordinationBlock = {
+  id: string;
+  title: LocalizedString;
+  /** Aclaración previa a la lista (ej: con quién se comparte la tarea). */
+  lead?: LocalizedString;
+  flow?: CoordinationFlow;
+  items: LocalizedString[];
+};
+
 export type FreelanceService = {
   title: LocalizedString;
   description: LocalizedString;

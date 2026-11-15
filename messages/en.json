@@ -9,6 +9,7 @@
     "skills": "Stack",
     "projects": "Projects",
     "experience": "Experience",
+    "coordination": "Coordination",
     "freelance": "Tech support",
     "contact": "Contact",
     "openMenu": "Open menu",
@@ -59,6 +60,10 @@
     "title": "Work experience",
     "subtitle": "Focused on impact and results.",
     "relatedProjects": "Related projects: {projects}"
+  },
+  "Coordination": {
+    "title": "How I manage projects",
+    "subtitle": "Alongside development, I take part in planning and tracking projects, working in cross-functional teams of around five people."
   },
   "Freelance": {
     "title": "Freelance tech support",
