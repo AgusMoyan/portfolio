@@ -8,7 +8,7 @@ export const experience: ExperienceItem[] = [
       es: "Full Stack Developer — Web & Mobile",
       en: "Full Stack Developer — Web & Mobile",
     },
-    period: { es: "Sep 2023 – Sep 2026", en: "Sep 2023 – Sep 2026" },
+    period: { es: "Sep 2023 – Actualidad", en: "Sep 2023 – Present" },
     location: "La Plata, Argentina",
     employmentType: { es: "Full-time", en: "Full-time" },
     summary: {
@@ -82,15 +82,15 @@ export const experience: ExperienceItem[] = [
   {
     company: "Freelance",
     role: {
-      es: "Soporte Técnico Freelance",
-      en: "Freelance Tech Support",
+      es: "Soporte técnico y desarrollo web",
+      en: "Technical Support & Web Development",
     },
     period: { es: "Ago 2017 – Actualidad", en: "Aug 2017 – Present" },
     location: "Buenos Aires, Argentina",
     employmentType: { es: "Freelance", en: "Freelance" },
     summary: {
-      es: "Soporte técnico preventivo y correctivo para clientes, resolviendo problemas de hardware, software, sistemas operativos, rendimiento y configuración de dispositivos.",
-      en: "Preventive and corrective tech support for clients, solving hardware, software, OS, performance and device configuration issues.",
+      es: "Soporte técnico preventivo y correctivo para clientes, resolviendo problemas de hardware, software, sistemas operativos, rendimiento y configuración de dispositivos, y desarrollo de sitios web para negocios.",
+      en: "Preventive and corrective tech support for clients, solving hardware, software, OS, performance and device configuration issues, plus website development for businesses.",
     },
     achievements: [
       {
@@ -110,5 +110,6 @@ export const experience: ExperienceItem[] = [
         en: "Developed communication, analysis and problem-solving skills.",
       },
     ],
+    relatedProjects: ["Biosyntech"],
   },
 ];

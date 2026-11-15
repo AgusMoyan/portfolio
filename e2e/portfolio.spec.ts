@@ -277,6 +277,8 @@ test.describe("Experiencia en Luz Consulting", () => {
     {
       idioma: "español",
       path: "/es",
+      periodo: "Sep 2023 – Actualidad",
+      freelance: "Soporte técnico y desarrollo web",
       bloques: [
         "Desarrollo e implementación técnica",
         "Coordinación y gestión de proyectos",
@@ -286,6 +288,8 @@ test.describe("Experiencia en Luz Consulting", () => {
     {
       idioma: "inglés",
       path: "/en",
+      periodo: "Sep 2023 – Present",
+      freelance: "Technical Support & Web Development",
       bloques: [
         "Development & technical implementation",
         "Project coordination & management",
@@ -294,14 +298,24 @@ test.describe("Experiencia en Luz Consulting", () => {
     },
   ];
 
-  for (const { idioma, path, bloques } of casos) {
+  for (const { idioma, path, periodo, freelance, bloques } of casos) {
+    test(`la entrada freelance incluye desarrollo web y Biosyntech en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const entrada = page
+        .locator("#experience li")
+        .filter({ has: page.getByRole("heading", { level: 3, name: new RegExp(freelance) }) });
+      await expect(entrada.getByText(/Biosyntech/)).toBeVisible();
+    });
+
     test(`separa los logros en tres bloques en ${idioma}`, async ({ page }) => {
       await page.goto(path);
       const experiencia = page.locator("#experience");
       await expect(
         experiencia.getByText("Full Stack Developer — Web & Mobile"),
       ).toBeVisible();
-      await expect(experiencia.getByText("Sep 2023 – Sep 2026")).toBeVisible();
+      await expect(experiencia.getByText(periodo)).toBeVisible();
       for (const bloque of bloques) {
         await expect(
           experiencia.getByRole("heading", { level: 4, name: bloque }),
@@ -381,6 +395,17 @@ test.describe("Descarga de CV por idioma", () => {
     const cv = page.getByRole("link", { name: /Descargar CV/ });
     await expect(cv).toHaveAttribute("href", /cv-agustin-moyano-es\.pdf$/);
   });
+
+  for (const locale of ["es", "en"]) {
+    test(`el PDF -${locale} es un CV real, no un placeholder`, async ({
+      request,
+    }) => {
+      const res = await request.get(`/cv/cv-agustin-moyano-${locale}.pdf`);
+      expect(res.ok()).toBe(true);
+      expect(res.headers()["content-type"]).toContain("application/pdf");
+      expect((await res.body()).length).toBeGreaterThan(10_000);
+    });
+  }
 
   test("en inglés sirve el PDF -en", async ({ page }) => {
     await page.goto("/en");
