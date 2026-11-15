@@ -55,25 +55,25 @@ export const coordinationBlocks: CoordinationBlock[] = [
     id: "costs",
     title: { es: "Costos, riesgos y alcance", en: "Costs, risks & scope" },
     lead: {
-      es: "Junto con otra persona del equipo:",
-      en: "Together with another team member:",
+      es: "En Luz Consulting, junto con otra persona del equipo:",
+      en: "At Luz Consulting, together with another team member:",
     },
     items: [
       {
-        es: "Estimamos horas y costos de implementación, con márgenes de contingencia.",
-        en: "We estimate implementation hours and costs, with contingency margins.",
+        es: "Estimábamos horas y costos de implementación, con márgenes de contingencia.",
+        en: "We estimated implementation hours and costs, with contingency margins.",
       },
       {
-        es: "Evaluamos nuevos requerimientos y su impacto en alcance, plazos y presupuesto.",
-        en: "We assess new requirements and their impact on scope, timelines and budget.",
+        es: "Evaluábamos nuevos requerimientos y su impacto en alcance, plazos y presupuesto.",
+        en: "We assessed new requirements and their impact on scope, timelines and budget.",
       },
       {
-        es: "Comparamos horas previstas y reales para detectar desvíos presupuestarios.",
-        en: "We compare estimated and actual hours to spot budget deviations.",
+        es: "Comparábamos horas previstas y reales para detectar desvíos presupuestarios.",
+        en: "We compared estimated and actual hours to spot budget deviations.",
       },
       {
-        es: "Ante atrasos o bloqueos, reorganizamos tareas, evaluamos alternativas y le comunicamos al cliente los problemas que puedan comprometer las entregas.",
-        en: "When delays or blockers come up, we reorganize tasks, evaluate alternatives and tell the client about issues that could put deliveries at risk.",
+        es: "Ante atrasos o bloqueos, reorganizábamos tareas, evaluábamos alternativas y le comunicábamos al cliente los problemas que pudieran comprometer las entregas.",
+        en: "When delays or blockers came up, we reorganized tasks, evaluated alternatives and told the client about issues that could put deliveries at risk.",
       },
     ],
   },
@@ -97,8 +97,8 @@ export const coordinationBlocks: CoordinationBlock[] = [
         en: "I use GitHub for version control and change tracking.",
       },
       {
-        es: "Comunico avances a clientes y coordino entre desarrollo, diseño y stakeholders. Ocasionalmente colaboro con el área comercial en consultas técnicas.",
-        en: "I share progress with clients and coordinate between development, design and stakeholders. I occasionally collaborate with the sales team on technical questions.",
+        es: "Comunico avances a clientes y coordino entre desarrollo, diseño y stakeholders. En Luz Consulting también colaboraba ocasionalmente con el área comercial en consultas técnicas.",
+        en: "I share progress with clients and coordinate between development, design and stakeholders. At Luz Consulting I also occasionally collaborated with the sales team on technical questions.",
       },
     ],
   },

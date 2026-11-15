@@ -301,6 +301,7 @@ test.describe("Experiencia en Luz Consulting", () => {
       await expect(
         experiencia.getByText("Full Stack Developer — Web & Mobile"),
       ).toBeVisible();
+      await expect(experiencia.getByText("Sep 2023 – Sep 2026")).toBeVisible();
       for (const bloque of bloques) {
         await expect(
           experiencia.getByRole("heading", { level: 4, name: bloque }),
