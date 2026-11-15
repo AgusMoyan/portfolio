@@ -11,16 +11,16 @@ export const coordinationBlocks: CoordinationBlock[] = [
     title: { es: "Planificación y seguimiento", en: "Planning & tracking" },
     items: [
       {
-        es: "Planifico entregables y defino fechas de entrega a partir de estimaciones basadas en proyectos anteriores.",
-        en: "I plan deliverables and set delivery dates based on estimates drawn from previous projects.",
+        es: "Planifiqué entregables y definí fechas de entrega a partir de estimaciones basadas en proyectos anteriores.",
+        en: "I planned deliverables and set delivery dates based on estimates drawn from previous projects.",
       },
       {
-        es: "Ordeno prioridades e identifico dependencias, tareas bloqueadas y trabajo que puede avanzar en paralelo.",
-        en: "I organize priorities and identify dependencies, blocked tasks and work that can move forward in parallel.",
+        es: "Ordené prioridades e identifiqué dependencias, tareas bloqueadas y trabajo que podía avanzar en paralelo.",
+        en: "I organized priorities and identified dependencies, blocked tasks and work that could move forward in parallel.",
       },
       {
-        es: "Hago seguimiento del avance para detectar desvíos a tiempo.",
-        en: "I track progress to catch deviations early.",
+        es: "Hice seguimiento del avance para detectar desvíos a tiempo.",
+        en: "I tracked progress to catch deviations early.",
       },
     ],
   },
@@ -38,16 +38,16 @@ export const coordinationBlocks: CoordinationBlock[] = [
     },
     items: [
       {
-        es: "Tickets en Asana con objetivo, requerimientos, tiempo estimado y criterios de aceptación, más prioridades, dependencias y bloqueos.",
-        en: "Asana tickets with goal, requirements, estimated time and acceptance criteria, plus priorities, dependencies and blockers.",
+        es: "Armé tickets en Asana con objetivo, requerimientos, tiempo estimado y criterios de aceptación, más prioridades, dependencias y bloqueos.",
+        en: "I wrote Asana tickets with goal, requirements, estimated time and acceptance criteria, plus priorities, dependencies and blockers.",
       },
       {
         es: "Participé en un intento de adopción de Scrum. Luego adaptamos nuestra forma de organizarnos porque no resultaba eficiente para el equipo.",
-        en: "I took part in an attempt to adopt Scrum. We later adapted how we organize our work because it wasn't efficient for the team.",
+        en: "I took part in an attempt to adopt Scrum. We later adapted how we organized our work because it wasn't efficient for the team.",
       },
       {
-        es: "En proyectos con fases secuenciales al estilo cascada (relevamiento, diseño, desarrollo, pruebas y puesta en producción), organizo entregables y dependencias entre etapas.",
-        en: "In projects with sequential, waterfall-style phases (discovery, design, development, testing and release), I organize deliverables and dependencies between stages.",
+        es: "En proyectos con fases secuenciales al estilo cascada (relevamiento, diseño, desarrollo, pruebas y puesta en producción), organicé entregables y dependencias entre etapas.",
+        en: "In projects with sequential, waterfall-style phases (discovery, design, development, testing and release), I organized deliverables and dependencies between stages.",
       },
     ],
   },
@@ -85,20 +85,20 @@ export const coordinationBlocks: CoordinationBlock[] = [
     },
     items: [
       {
-        es: "Registro requerimientos y criterios de aceptación en Asana.",
-        en: "I record requirements and acceptance criteria in Asana.",
+        es: "Registré requerimientos y criterios de aceptación en Asana.",
+        en: "I recorded requirements and acceptance criteria in Asana.",
       },
       {
-        es: "Documento acuerdos y decisiones de las reuniones por Google Meet en documentos compartidos de Google Drive.",
-        en: "I document agreements and decisions from Google Meet calls in shared Google Drive documents.",
+        es: "Documenté acuerdos y decisiones de las reuniones por Google Meet en documentos compartidos de Google Drive.",
+        en: "I documented agreements and decisions from Google Meet calls in shared Google Drive documents.",
       },
       {
-        es: "Uso GitHub para el control de versiones y el seguimiento de cambios.",
-        en: "I use GitHub for version control and change tracking.",
+        es: "Usé GitHub para el control de versiones y el seguimiento de cambios.",
+        en: "I used GitHub for version control and change tracking.",
       },
       {
-        es: "Comunico avances a clientes y coordino entre desarrollo, diseño y stakeholders. En Luz Consulting también colaboraba ocasionalmente con el área comercial en consultas técnicas.",
-        en: "I share progress with clients and coordinate between development, design and stakeholders. At Luz Consulting I also occasionally collaborated with the sales team on technical questions.",
+        es: "Comuniqué avances a clientes y coordiné entre desarrollo, diseño y stakeholders. También colaboré ocasionalmente con el área comercial en consultas técnicas.",
+        en: "I shared progress with clients and coordinated between development, design and stakeholders. I also occasionally collaborated with the sales team on technical questions.",
       },
     ],
   },

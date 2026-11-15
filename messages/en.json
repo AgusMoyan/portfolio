@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "Agustín Moyano — Full Stack Developer · IT Technical Project Coordination",
+    "title": "Agustín Moyano — Full Stack Developer · Technical IT Project Coordination",
     "description": "Full Stack Developer (web & mobile) with IT project coordination experience: project planning, requirements analysis and stakeholder communication.",
     "ogAlt": "Portfolio of Agustín Moyano, Full Stack Developer with IT project coordination experience"
   },
@@ -28,9 +28,9 @@
   },
   "Hero": {
     "available": "Open to new opportunities",
-    "role": "Full Stack Developer | IT Technical Project Coordination",
+    "role": "Full Stack Developer | Technical IT Project Coordination",
     "valueProp": "I build custom web and mobile software that solves business problems, and I support each project from requirements analysis and delivery planning through to production.",
-    "location": "La Plata, Argentina · Remote, hybrid in Buenos Aires (CABA) or relocation",
+    "location": "La Plata, Argentina · Remote, hybrid/on-site in Buenos Aires (CABA), open to relocation",
     "ctaProjects": "View projects",
     "ctaContact": "Contact",
     "photoAlt": "Photo of Agustín Moyano"
@@ -68,7 +68,7 @@
   },
   "Coordination": {
     "title": "How I manage projects",
-    "subtitle": "How I organize work, drawing on more than two years of coordinating projects alongside development at Luz Consulting, in cross-functional teams of around five people."
+    "subtitle": "How I organized work during more than two years of coordinating projects alongside development at Luz Consulting, in cross-functional teams of around five people."
   },
   "Freelance": {
     "title": "Freelance tech support",

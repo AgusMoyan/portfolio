@@ -45,15 +45,16 @@ test.describe("Posicionamiento", () => {
       path: "/es",
       rol: "Full Stack Developer | Coordinación Técnica de Proyectos IT",
       area: "Coordinación de proyectos",
-      ubicacion: "La Plata, Argentina · Remoto, híbrido en CABA o reubicación",
+      ubicacion:
+        "La Plata, Argentina · Remoto, híbrido/presencial en CABA y posibilidad de reubicación",
     },
     {
       idioma: "inglés",
       path: "/en",
-      rol: "Full Stack Developer | IT Technical Project Coordination",
+      rol: "Full Stack Developer | Technical IT Project Coordination",
       area: "Project coordination",
       ubicacion:
-        "La Plata, Argentina · Remote, hybrid in Buenos Aires (CABA) or relocation",
+        "La Plata, Argentina · Remote, hybrid/on-site in Buenos Aires (CABA), open to relocation",
     },
   ];
 
@@ -277,7 +278,8 @@ test.describe("Experiencia en Luz Consulting", () => {
     {
       idioma: "español",
       path: "/es",
-      periodo: "Sep 2023 – Actualidad",
+      periodo: "Sep 2023 – Sep 2026",
+      modalidad: "Part-time",
       freelance: "Soporte técnico y desarrollo web",
       bloques: [
         "Desarrollo e implementación técnica",
@@ -288,7 +290,8 @@ test.describe("Experiencia en Luz Consulting", () => {
     {
       idioma: "inglés",
       path: "/en",
-      periodo: "Sep 2023 – Present",
+      periodo: "Sep 2023 – Sep 2026",
+      modalidad: "Part-time",
       freelance: "Technical Support & Web Development",
       bloques: [
         "Development & technical implementation",
@@ -298,7 +301,7 @@ test.describe("Experiencia en Luz Consulting", () => {
     },
   ];
 
-  for (const { idioma, path, periodo, freelance, bloques } of casos) {
+  for (const { idioma, path, periodo, modalidad, freelance, bloques } of casos) {
     test(`la entrada freelance incluye desarrollo web y Biosyntech en ${idioma}`, async ({
       page,
     }) => {
@@ -316,6 +319,9 @@ test.describe("Experiencia en Luz Consulting", () => {
         experiencia.getByText("Full Stack Developer — Web & Mobile"),
       ).toBeVisible();
       await expect(experiencia.getByText(periodo)).toBeVisible();
+      await expect(
+        experiencia.getByText(`La Plata, Argentina · ${modalidad}`),
+      ).toBeVisible();
       for (const bloque of bloques) {
         await expect(
           experiencia.getByRole("heading", { level: 4, name: bloque }),
@@ -335,7 +341,7 @@ test.describe("SEO y metadatos", () => {
     {
       idioma: "inglés",
       path: "/en",
-      titulo: /Full Stack Developer.*IT Technical Project Coordination/,
+      titulo: /Full Stack Developer.*Technical IT Project Coordination/,
     },
   ];
 

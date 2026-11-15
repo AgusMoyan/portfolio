@@ -8,9 +8,9 @@ export const experience: ExperienceItem[] = [
       es: "Full Stack Developer — Web & Mobile",
       en: "Full Stack Developer — Web & Mobile",
     },
-    period: { es: "Sep 2023 – Actualidad", en: "Sep 2023 – Present" },
+    period: { es: "Sep 2023 – Sep 2026", en: "Sep 2023 – Sep 2026" },
     location: "La Plata, Argentina",
-    employmentType: { es: "Full-time", en: "Full-time" },
+    employmentType: { es: "Part-time", en: "Part-time" },
     summary: {
       es: "Combiné el desarrollo de aplicaciones web y mobile con la coordinación técnica de los proyectos, desde el relevamiento con el cliente hasta la entrega.",
       en: "I combined building web and mobile apps with the technical coordination of projects, from gathering requirements with the client to delivery.",
