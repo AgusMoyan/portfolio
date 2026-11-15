@@ -68,6 +68,12 @@ export type Project = {
   company?: string;
 };
 
+/** Logros agrupados por tipo de responsabilidad (ej: desarrollo, coordinación). */
+export type AchievementGroup = {
+  title: LocalizedString;
+  items: LocalizedString[];
+};
+
 export type ExperienceItem = {
   company: string;
   role: LocalizedString;
@@ -78,7 +84,10 @@ export type ExperienceItem = {
   employmentType?: LocalizedString;
   /** Resumen breve del puesto. */
   summary?: LocalizedString;
-  achievements: LocalizedString[];
+  /** Logros en una sola lista (puestos con un único tipo de responsabilidad). */
+  achievements?: LocalizedString[];
+  /** Logros separados por bloque (puestos con rol mixto). */
+  achievementGroups?: AchievementGroup[];
   /** Nombres de proyectos detallados en la sección Proyectos (regla de no-solape). */
   relatedProjects?: string[];
 };

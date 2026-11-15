@@ -272,6 +272,44 @@ test.describe("Herramientas de coordinación en el Stack", () => {
   }
 });
 
+test.describe("Experiencia en Luz Consulting", () => {
+  const casos = [
+    {
+      idioma: "español",
+      path: "/es",
+      bloques: [
+        "Desarrollo e implementación técnica",
+        "Coordinación y gestión de proyectos",
+        "Comunicación y análisis de negocio",
+      ],
+    },
+    {
+      idioma: "inglés",
+      path: "/en",
+      bloques: [
+        "Development & technical implementation",
+        "Project coordination & management",
+        "Communication & business analysis",
+      ],
+    },
+  ];
+
+  for (const { idioma, path, bloques } of casos) {
+    test(`separa los logros en tres bloques en ${idioma}`, async ({ page }) => {
+      await page.goto(path);
+      const experiencia = page.locator("#experience");
+      await expect(
+        experiencia.getByText("Full Stack Developer — Web & Mobile"),
+      ).toBeVisible();
+      for (const bloque of bloques) {
+        await expect(
+          experiencia.getByRole("heading", { level: 4, name: bloque }),
+        ).toBeVisible();
+      }
+    });
+  }
+});
+
 test.describe("Descarga de CV por idioma", () => {
   test("en español sirve el PDF -es", async ({ page }) => {
     await page.goto("/es");

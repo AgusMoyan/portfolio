@@ -12,25 +12,81 @@ export const experience: ExperienceItem[] = [
     location: "La Plata, Argentina",
     employmentType: { es: "Part-time", en: "Part-time" },
     summary: {
-      es: "Desarrollo aplicaciones web y mobile para clientes reales, participando en frontend, mobile, backend, integraciones, dashboards, despliegues y decisiones técnicas.",
-      en: "I build web and mobile apps for real clients, working across frontend, mobile, backend, integrations, dashboards, deployments and technical decisions.",
+      es: "Además de desarrollar aplicaciones web y mobile, participo en la planificación y coordinación técnica de los proyectos, articulando el trabajo de diseño y desarrollo con las necesidades de cada cliente.",
+      en: "Besides building web and mobile apps, I take part in the planning and technical coordination of projects, aligning design and development work with each client's needs.",
     },
-    achievements: [
+    achievementGroups: [
       {
-        es: "Llevé 3 productos a producción (web y mobile), de punta a punta, para clientes reales.",
-        en: "Shipped 3 products to production (web and mobile), end to end, for real clients.",
+        title: {
+          es: "Desarrollo e implementación técnica",
+          en: "Development & technical implementation",
+        },
+        items: [
+          {
+            es: "Llevé 3 productos a producción (web y mobile), de punta a punta, para clientes reales.",
+            en: "Shipped 3 products to production (web and mobile), end to end, for real clients.",
+          },
+          {
+            es: "Construí dashboards de administración, un motor de precios dinámico e integraciones (mapas, pagos, autenticación).",
+            en: "Built admin dashboards, a dynamic pricing engine and integrations (maps, payments, authentication).",
+          },
+          {
+            es: "Publiqué una app mobile en Google Play con EAS Build y actualizaciones OTA.",
+            en: "Published a mobile app on Google Play with EAS Build and OTA updates.",
+          },
+          {
+            es: "Participo en decisiones técnicas de arquitectura, tooling, despliegue y escalabilidad.",
+            en: "Take part in technical decisions around architecture, tooling, deployment and scalability.",
+          },
+          {
+            es: "Implementé requisitos de seguridad y control de acceso en paneles de administración.",
+            en: "Implemented security and access-control requirements for admin panels.",
+          },
+        ],
       },
       {
-        es: "Construí dashboards de administración, un motor de precios dinámico e integraciones (mapas, pagos, autenticación).",
-        en: "Built admin dashboards, a dynamic pricing engine and integrations (maps, payments, authentication).",
+        title: {
+          es: "Coordinación y gestión de proyectos",
+          en: "Project coordination & management",
+        },
+        items: [
+          {
+            es: "Combino el desarrollo con la coordinación de tareas en equipos interdisciplinarios de unas cinco personas.",
+            en: "Combine development with task coordination in cross-functional teams of around five people.",
+          },
+          {
+            es: "Colaboro en la estimación de tiempos y costos y en la organización de entregables.",
+            en: "Help estimate timelines and costs and organize deliverables.",
+          },
+          {
+            es: "Sigo tareas, dependencias y bloqueos en Asana para mantener las entregas en curso.",
+            en: "Track tasks, dependencies and blockers in Asana to keep deliveries on course.",
+          },
+          {
+            es: "Participo, junto con otra persona, en decisiones sobre prioridades, plazos, costos y cambios de alcance.",
+            en: "Share decisions on priorities, timelines, costs and scope changes with another team member.",
+          },
+        ],
       },
       {
-        es: "Publiqué una app mobile en Google Play con EAS Build y actualizaciones OTA.",
-        en: "Published a mobile app on Google Play with EAS Build and OTA updates.",
-      },
-      {
-        es: "Participo en decisiones técnicas de arquitectura, tooling, despliegue y escalabilidad.",
-        en: "Take part in technical decisions around architecture, tooling, deployment and scalability.",
+        title: {
+          es: "Comunicación y análisis de negocio",
+          en: "Communication & business analysis",
+        },
+        items: [
+          {
+            es: "Me comunico de forma directa con clientes, diseñadores y desarrolladores.",
+            en: "Communicate directly with clients, designers and developers.",
+          },
+          {
+            es: "Relevo requerimientos y reglas de negocio para convertirlos en soluciones concretas.",
+            en: "Gather requirements and business rules and turn them into concrete solutions.",
+          },
+          {
+            es: "Colaboro ocasionalmente con el área comercial en consultas técnicas y en la evaluación de soluciones para clientes.",
+            en: "Occasionally support the sales team with technical questions and by evaluating solutions for clients.",
+          },
+        ],
       },
     ],
     relatedProjects: ["TrustRide", "2Mmudanzas", "RCP Fundación UDEC"],
