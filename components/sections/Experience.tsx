@@ -47,11 +47,33 @@ export function Experience() {
                 <p className="mt-3 text-muted">{localize(item.summary, locale)}</p>
               ) : null}
 
-              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-muted">
-                {item.achievements.map((a, j) => (
-                  <li key={j}>{localize(a, locale)}</li>
-                ))}
-              </ul>
+              {item.achievementGroups && item.achievementGroups.length > 0 ? (
+                <div className="mt-5 grid gap-5 lg:grid-cols-3">
+                  {item.achievementGroups.map((group) => (
+                    <div
+                      key={group.title.en}
+                      className="rounded-lg border border-border p-4"
+                    >
+                      <h4 className="font-mono text-xs text-accent">
+                        {localize(group.title, locale)}
+                      </h4>
+                      <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-muted">
+                        {group.items.map((a, j) => (
+                          <li key={j}>{localize(a, locale)}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+
+              {item.achievements && item.achievements.length > 0 ? (
+                <ul className="mt-3 list-disc space-y-1.5 pl-5 text-muted">
+                  {item.achievements.map((a, j) => (
+                    <li key={j}>{localize(a, locale)}</li>
+                  ))}
+                </ul>
+              ) : null}
 
               {item.relatedProjects && item.relatedProjects.length > 0 ? (
                 <p className="mt-3 text-sm text-muted">

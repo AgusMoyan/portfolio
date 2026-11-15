@@ -1,14 +1,15 @@
 {
   "Metadata": {
-    "title": "Agustín Moyano — Full Stack Developer",
-    "description": "Full stack developer (web & mobile). I build products that solve real problems, focused on React, Next.js and mobile development.",
-    "ogAlt": "Agustín Moyano's portfolio, Full Stack Developer"
+    "title": "Agustín Moyano — Full Stack Developer · Technical IT Project Coordination",
+    "description": "Full Stack Developer (web & mobile) with IT project coordination experience: project planning, requirements analysis and stakeholder communication.",
+    "ogAlt": "Portfolio of Agustín Moyano, Full Stack Developer with IT project coordination experience"
   },
   "Nav": {
     "about": "About",
     "skills": "Stack",
     "projects": "Projects",
     "experience": "Experience",
+    "coordination": "Coordination",
     "freelance": "Tech support",
     "contact": "Contact",
     "openMenu": "Open menu",
@@ -27,17 +28,18 @@
   },
   "Hero": {
     "available": "Open to new opportunities",
-    "role": "Full Stack Developer — Web & Mobile",
-    "valueProp": "I love turning ideas into custom software — from concept to production, on web and mobile.",
-    "location": "Argentina · Remote, on-site or relocation",
+    "role": "Full Stack Developer | Technical IT Project Coordination",
+    "valueProp": "I build custom web and mobile software that solves business problems, and I support each project from requirements analysis and delivery planning through to production.",
+    "location": "La Plata, Argentina · Remote, hybrid/on-site in Buenos Aires (CABA), open to relocation",
     "ctaProjects": "View projects",
     "ctaContact": "Contact",
     "photoAlt": "Photo of Agustín Moyano"
   },
   "About": {
     "title": "About me",
-    "eyebrow": "Developer profile",
+    "eyebrow": "Professional profile",
     "contributionsTitle": "Contribution areas",
+    "educationTitle": "Education",
     "freelanceNote": "I also offer freelance tech support (maintenance and optimization) — see below."
   },
   "Skills": {
@@ -51,6 +53,10 @@
     "role": "Role",
     "stack": "Stack",
     "highlights": "What I built",
+    "caseTitle": "Business case",
+    "caseProblem": "Business problem",
+    "caseContribution": "My contribution",
+    "caseResult": "Outcome",
     "viewDemo": "View demo",
     "viewCode": "View code",
     "atCompany": "At {company}"
@@ -59,6 +65,10 @@
     "title": "Work experience",
     "subtitle": "Focused on impact and results.",
     "relatedProjects": "Related projects: {projects}"
+  },
+  "Coordination": {
+    "title": "How I manage projects",
+    "subtitle": "How I organized work during more than two years of coordinating projects alongside development at Luz Consulting, in cross-functional teams of around five people."
   },
   "Freelance": {
     "title": "Freelance tech support",

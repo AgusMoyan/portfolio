@@ -21,6 +21,13 @@ export type Skill = {
   icon: string;
 };
 
+export type EducationItem = {
+  degree: LocalizedString;
+  institution: LocalizedString;
+  /** Estado tal como está confirmado (sin fechas ni materias no verificadas). */
+  status: LocalizedString;
+};
+
 export type SkillGroup = {
   id: string;
   title: LocalizedString;
@@ -33,6 +40,13 @@ export type SpokenLanguage = {
   level: LocalizedString;
 };
 
+/** Caso breve de negocio: qué problema había, qué hice y qué se logró. */
+export type CaseStudy = {
+  problem: LocalizedString;
+  contribution: LocalizedString;
+  result: LocalizedString;
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -42,6 +56,8 @@ export type Project = {
   stack: string[];
   /** Puntos clave de lo construido (opcional). */
   highlights?: LocalizedString[];
+  /** Caso Problema → Intervención → Resultado. Sin métricas no documentadas. */
+  caseStudy?: CaseStudy;
   /** Una o más capturas. Si hay más de una, la card muestra un slider. */
   images: string[];
   /** "cover" (default) recorta a 16:9; "contain" muestra completa (ej: capturas mobile). */
@@ -50,6 +66,12 @@ export type Project = {
   repoUrl?: string;
   /** Si nació dentro de un empleo: se detalla acá y en Experiencia solo se nombra. */
   company?: string;
+};
+
+/** Logros agrupados por tipo de responsabilidad (ej: desarrollo, coordinación). */
+export type AchievementGroup = {
+  title: LocalizedString;
+  items: LocalizedString[];
 };
 
 export type ExperienceItem = {
@@ -62,9 +84,28 @@ export type ExperienceItem = {
   employmentType?: LocalizedString;
   /** Resumen breve del puesto. */
   summary?: LocalizedString;
-  achievements: LocalizedString[];
+  /** Logros en una sola lista (puestos con un único tipo de responsabilidad). */
+  achievements?: LocalizedString[];
+  /** Logros separados por bloque (puestos con rol mixto). */
+  achievementGroups?: AchievementGroup[];
   /** Nombres de proyectos detallados en la sección Proyectos (regla de no-solape). */
   relatedProjects?: string[];
+};
+
+/** Etapas de un flujo de trabajo mostradas como pasos en línea (ej: columnas Kanban). */
+export type CoordinationFlow = {
+  label: LocalizedString;
+  steps: LocalizedString[];
+};
+
+/** Bloque de la sección "Cómo gestiono los proyectos". */
+export type CoordinationBlock = {
+  id: string;
+  title: LocalizedString;
+  /** Aclaración previa a la lista (ej: con quién se comparte la tarea). */
+  lead?: LocalizedString;
+  flow?: CoordinationFlow;
+  items: LocalizedString[];
 };
 
 export type FreelanceService = {

@@ -4,6 +4,7 @@ import {
   aboutIntro,
   aboutLead,
   contributionAreas,
+  education,
   pillars,
 } from "@/content/profile";
 import { localize } from "@/content/types";
@@ -63,6 +64,29 @@ export function About() {
           ))}
         </ul>
       </Reveal>
+
+      {/* Formación académica */}
+      {education.length > 0 ? (
+        <Reveal className="mt-10">
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted">
+            {t("educationTitle")}
+          </h3>
+          <ul className="space-y-2">
+            {education.map((item) => (
+              <li key={item.degree.en}>
+                <span className="font-medium">
+                  {localize(item.degree, locale)}
+                </span>
+                <span className="text-muted">
+                  {" "}
+                  · {localize(item.institution, locale)} ·{" "}
+                  {localize(item.status, locale)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      ) : null}
 
       <Reveal className="mt-10">
         <p className="text-base text-muted">{t("freelanceNote")}</p>

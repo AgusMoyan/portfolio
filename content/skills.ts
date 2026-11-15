@@ -86,6 +86,20 @@ export const skillGroups: SkillGroup[] = [
       { name: "pnpm", icon: "pnpm" },
     ],
   },
+  {
+    id: "coordination",
+    title: { es: "Coordinación & colaboración", en: "Coordination & collaboration" },
+    description: {
+      es: "Organización de tareas, acuerdos y seguimiento compartido con el equipo y los clientes.",
+      en: "Task organization, agreements and shared progress tracking with the team and clients.",
+    },
+    skills: [
+      { name: "Asana", icon: "asana" },
+      { name: "Kanban", icon: "" },
+      { name: "Google Meet", icon: "googlemeet" },
+      { name: "Google Drive", icon: "googledrive" },
+    ],
+  },
 ];
 
 export const spokenLanguages: SpokenLanguage[] = [

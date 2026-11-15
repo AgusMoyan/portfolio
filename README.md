@@ -30,6 +30,7 @@ componentes:
 | `content/skills.ts` | Stack técnico e idiomas. |
 | `content/projects.ts` | Proyectos destacados. |
 | `content/experience.ts` | Experiencia laboral. |
+| `content/coordination.ts` | Sección "Cómo gestiono los proyectos". |
 | `content/freelance.ts` | Servicios de soporte técnico. |
 | `messages/*.json` | Textos de la interfaz (nav, botones, títulos). |
 

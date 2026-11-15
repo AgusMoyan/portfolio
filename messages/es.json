@@ -1,14 +1,15 @@
 {
   "Metadata": {
-    "title": "Agustín Moyano — Full Stack Developer",
-    "description": "Desarrollador full stack (web y mobile). Construyo productos que resuelven problemas reales, con foco en React, Next.js y desarrollo mobile.",
-    "ogAlt": "Portfolio de Agustín Moyano, Full Stack Developer"
+    "title": "Agustín Moyano — Full Stack Developer · Coordinación Técnica de Proyectos IT",
+    "description": "Full Stack Developer web y mobile con experiencia en coordinación técnica de proyectos IT: planificación, requerimientos y comunicación con stakeholders.",
+    "ogAlt": "Portfolio de Agustín Moyano, Full Stack Developer con experiencia en coordinación técnica de proyectos IT"
   },
   "Nav": {
     "about": "Sobre mí",
     "skills": "Stack",
     "projects": "Proyectos",
     "experience": "Experiencia",
+    "coordination": "Coordinación",
     "freelance": "Soporte técnico",
     "contact": "Contacto",
     "openMenu": "Abrir menú",
@@ -27,17 +28,18 @@
   },
   "Hero": {
     "available": "Disponible para nuevas oportunidades",
-    "role": "Full Stack Developer — Web & Mobile",
-    "valueProp": "Me gusta transformar ideas en software a medida — del concepto a producción, en web y mobile.",
-    "location": "Argentina · Remoto, presencial o reubicación",
+    "role": "Full Stack Developer | Coordinación Técnica de Proyectos IT",
+    "valueProp": "Construyo software web y mobile a medida para resolver problemas de negocio, y acompaño cada proyecto desde el análisis de requerimientos y la planificación de entregas hasta producción.",
+    "location": "La Plata, Argentina · Remoto, híbrido/presencial en CABA y posibilidad de reubicación",
     "ctaProjects": "Ver proyectos",
     "ctaContact": "Contacto",
     "photoAlt": "Foto de Agustín Moyano"
   },
   "About": {
     "title": "Sobre mí",
-    "eyebrow": "Perfil de desarrollador",
+    "eyebrow": "Perfil profesional",
     "contributionsTitle": "Áreas de contribución",
+    "educationTitle": "Formación",
     "freelanceNote": "También ofrezco soporte técnico freelance (mantenimiento y optimización) — más abajo."
   },
   "Skills": {
@@ -51,6 +53,10 @@
     "role": "Rol",
     "stack": "Stack",
     "highlights": "Qué construí",
+    "caseTitle": "Caso de negocio",
+    "caseProblem": "Problema de negocio",
+    "caseContribution": "Mi intervención",
+    "caseResult": "Resultado",
     "viewDemo": "Ver demo",
     "viewCode": "Ver código",
     "atCompany": "En {company}"
@@ -59,6 +65,10 @@
     "title": "Experiencia laboral",
     "subtitle": "Foco en impacto y resultados.",
     "relatedProjects": "Proyectos relacionados: {projects}"
+  },
+  "Coordination": {
+    "title": "Cómo gestiono los proyectos",
+    "subtitle": "Cómo organicé el trabajo durante más de dos años coordinando proyectos junto al desarrollo en Luz Consulting, en equipos interdisciplinarios de unas cinco personas."
   },
   "Freelance": {
     "title": "Soporte técnico freelance",

@@ -1,4 +1,4 @@
-import type { LocalizedString, Pillar } from "./types";
+import type { EducationItem, LocalizedString, Pillar } from "./types";
 
 /** Frase de apertura de "Sobre mí" (declaración fuerte). */
 export const aboutIntro: LocalizedString = {
@@ -8,8 +8,8 @@ export const aboutIntro: LocalizedString = {
 
 /** Párrafo introductorio. */
 export const aboutLead: LocalizedString = {
-  es: "Trabajo conectando producto, interfaz, lógica, datos e integraciones para construir sistemas que se puedan usar en escenarios reales. Me importa entender el problema, estructurar el flujo y llevar soluciones a producción sin sumar complejidad innecesaria.",
-  en: "I work by connecting product, interface, logic, data and integrations to build systems that can be used in real-world scenarios. I care about understanding the problem, structuring the flow and shipping solutions to production without adding unnecessary complexity.",
+  es: "Trabajo conectando producto, interfaz, lógica, datos e integraciones para construir sistemas que se puedan usar en escenarios reales. Además de desarrollar, tengo experiencia en coordinación técnica: organicé entregables y tareas, e hice de nexo entre clientes, diseño y desarrollo. Me importa entender el problema de negocio y llevar soluciones a producción sin sumar complejidad innecesaria.",
+  en: "I work by connecting product, interface, logic, data and integrations to build systems that can be used in real-world scenarios. Beyond development, I have hands-on experience in technical coordination: I organized deliverables and tasks and acted as the link between clients, design and development. I care about understanding the business problem and shipping solutions to production without adding unnecessary complexity.",
 };
 
 /** Pilares / forma de trabajo. */
@@ -56,4 +56,20 @@ export const contributionAreas: LocalizedString[] = [
   { es: "Sistemas de administración", en: "Admin systems" },
   { es: "Integraciones de API", en: "API integrations" },
   { es: "Auth y permisos", en: "Auth & permissions" },
+  { es: "Coordinación de proyectos", en: "Project coordination" },
+];
+
+/** Formación académica (bloque discreto dentro de "Sobre mí"). */
+export const education: EducationItem[] = [
+  {
+    degree: {
+      es: "Ingeniería en Sistemas de Información",
+      en: "Information Systems Engineering",
+    },
+    institution: {
+      es: "Universidad Tecnológica Nacional (UTN), La Plata",
+      en: "National Technological University (UTN), La Plata",
+    },
+    status: { es: "En curso, etapa inicial", en: "In progress, early stage" },
+  },
 ];

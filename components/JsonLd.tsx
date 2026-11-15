@@ -1,4 +1,4 @@
-import { siteConfig } from "@/content/site";
+import { knowsAbout, siteConfig } from "@/content/site";
 
 /**
  * Structured data (schema.org Person) para que buscadores entiendan el perfil.
@@ -12,6 +12,7 @@ export function JsonLd({ locale }: { locale: string }) {
     url: `${siteConfig.url}/${locale}`,
     image: `${siteConfig.url}/foto-perfil.png`,
     jobTitle: "Full Stack Developer",
+    knowsAbout,
     sameAs: [siteConfig.linkedin, siteConfig.github],
   };
 

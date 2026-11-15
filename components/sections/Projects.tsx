@@ -45,6 +45,30 @@ export function Projects() {
                   </span>
                 </p>
 
+                {project.caseStudy ? (
+                  <div className="mt-4 rounded-lg border border-border bg-card p-4">
+                    <p className="text-sm font-medium">{t("caseTitle")}</p>
+                    <dl className="mt-3 space-y-3 text-sm">
+                      {(
+                        [
+                          ["caseProblem", project.caseStudy.problem],
+                          ["caseContribution", project.caseStudy.contribution],
+                          ["caseResult", project.caseStudy.result],
+                        ] as const
+                      ).map(([label, text]) => (
+                        <div key={label}>
+                          <dt className="font-mono text-xs text-accent">
+                            {t(label)}
+                          </dt>
+                          <dd className="mt-1 text-muted">
+                            {localize(text, locale)}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                ) : null}
+
                 {project.highlights && project.highlights.length > 0 ? (
                   <div className="mt-4">
                     <p className="text-sm font-medium">{t("highlights")}</p>

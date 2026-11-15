@@ -16,6 +16,22 @@ export const siteConfig = {
   repo: "https://github.com/AgusMoyan/portfolio",
 } as const;
 
+/** Áreas de conocimiento para los datos estructurados (schema.org knowsAbout). */
+export const knowsAbout = [
+  "Software Development",
+  "Full Stack Development",
+  "Web Development",
+  "Mobile Development",
+  "Technical Project Coordination",
+  "IT Project Coordination",
+  "Project Planning",
+  "Requirements Analysis",
+  "Stakeholder Communication",
+  "Risk Management",
+  "Asana",
+  "Kanban",
+];
+
 export const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}`;
 
 /** Ruta del CV correspondiente al idioma activo. */

@@ -17,7 +17,7 @@ export function Contact() {
   const locale = useLocale() as Locale;
 
   return (
-    <Section id="contact">
+    <Section id="contact" muted>
       <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
       <Reveal>
