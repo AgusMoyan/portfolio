@@ -193,6 +193,59 @@ test.describe("Caso 2Mmudanzas", () => {
   }
 });
 
+test.describe("Proyecto Diagonal Zero", () => {
+  const casos = [
+    {
+      idioma: "español",
+      path: "/es",
+      queConstrui: "Qué construí",
+      demo: "Ver demo",
+      codigo: "Ver código",
+      rolColaboracion: /en colaboración con una diseñadora/,
+    },
+    {
+      idioma: "inglés",
+      path: "/en",
+      queConstrui: "What I built",
+      demo: "View demo",
+      codigo: "View code",
+      rolColaboracion: /working with a designer/,
+    },
+  ];
+
+  for (const { idioma, path, queConstrui, demo, codigo, rolColaboracion } of casos) {
+    test(`la card muestra lo construido y el sitio en producción en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const tarjeta = page
+        .getByRole("article")
+        .filter({ has: page.getByRole("heading", { name: "Diagonal Zero" }) });
+      await expect(tarjeta).toBeVisible();
+      await expect(tarjeta.getByText(queConstrui, { exact: true })).toBeVisible();
+      await expect(tarjeta.getByText(rolColaboracion)).toBeVisible();
+      const linkDemo = tarjeta.getByRole("link", { name: demo });
+      await expect(linkDemo).toHaveAttribute("href", "https://www.diagonalzero.com.ar/");
+      await expect(linkDemo).toHaveAttribute("target", "_blank");
+      await expect(tarjeta.getByRole("link", { name: codigo })).toHaveCount(0);
+    });
+
+    test(`va en cuarto lugar, entre RCP y Biosyntech, en ${idioma}`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const nombres = await page
+        .locator("#projects article h3")
+        .allTextContents();
+      expect(nombres.slice(2, 5)).toEqual([
+        "RCP Fundación UDEC",
+        "Diagonal Zero",
+        "Biosyntech",
+      ]);
+    });
+  }
+});
+
 test.describe("Coordinación con stakeholders en proyectos", () => {
   const casos = [
     {
@@ -302,14 +355,14 @@ test.describe("Experiencia en Luz Consulting", () => {
   ];
 
   for (const { idioma, path, periodo, modalidad, freelance, bloques } of casos) {
-    test(`la entrada freelance incluye desarrollo web y Biosyntech en ${idioma}`, async ({
+    test(`la entrada freelance incluye desarrollo web, Biosyntech y Diagonal Zero en ${idioma}`, async ({
       page,
     }) => {
       await page.goto(path);
       const entrada = page
         .locator("#experience li")
         .filter({ has: page.getByRole("heading", { level: 3, name: new RegExp(freelance) }) });
-      await expect(entrada.getByText(/Biosyntech/)).toBeVisible();
+      await expect(entrada.getByText(/Biosyntech, Diagonal Zero/)).toBeVisible();
     });
 
     test(`separa los logros en tres bloques en ${idioma}`, async ({ page }) => {
