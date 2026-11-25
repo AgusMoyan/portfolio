@@ -157,6 +157,44 @@ export const projects: Project[] = [
     company: "Luz Consulting",
   },
   {
+    slug: "diagonal-zero",
+    name: "Diagonal Zero",
+    description: {
+      es: "Sitio institucional en producción para Diagonal Zero, una firma de consultoría e integración tecnológica que conecta al sector público con el privado. Es una landing con una identidad visual marcada que presenta sus servicios y su forma de trabajar, y recibe las consultas por email.",
+      en: "Production website for Diagonal Zero, a technology consulting and integration firm that connects the public and private sectors. It's a landing page with a strong visual identity that presents the firm's services and way of working, and takes inquiries by email.",
+    },
+    role: {
+      es: "Desarrollo front end a partir de un diseño en Figma, en colaboración con una diseñadora, con quien ajusté el menú mobile, los textos y la versión tablet, que no estaba diseñada. También hice el deploy en Vercel con dominio propio.",
+      en: "Front end development from a Figma design, working with a designer on changes to the mobile menu, the copy and the tablet layout, which wasn't in the design. I also deployed it on Vercel with a custom domain.",
+    },
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Figma", "Vercel"],
+    highlights: [
+      {
+        es: "Maquetado fiel al diseño en desktop y mobile, con una escala tipográfica fluida (clamp) y una versión tablet derivada de ambos.",
+        en: "Close match to the desktop and mobile designs, with a fluid type scale (clamp) and a tablet layout derived from both.",
+      },
+      {
+        es: "El timeline de \"Cómo trabajamos\" usa container query units: un solo DOM sirve a los dos layouts, sin contenido duplicado.",
+        en: "The process timeline uses container query units, so one DOM serves both layouts with no duplicated content.",
+      },
+      {
+        es: "Accesibilidad: accordion de servicios con ARIA, menú mobile sobre <dialog> nativo (foco atrapado y cierre con Escape), contraste WCAG en el texto con degradé y respeto por prefers-reduced-motion.",
+        en: "Accessibility: an ARIA services accordion, a mobile menu on a native <dialog> (focus trap, Escape to close), WCAG contrast on gradient text and support for prefers-reduced-motion.",
+      },
+      {
+        es: "Animaciones de marca en CSS puro: el tile \"Z\" y el sello en rotación continua, un marquee infinito y la entrada escalonada del menú.",
+        en: "Brand animations in pure CSS: the \"Z\" tile and the seal rotating continuously, an infinite marquee and a staggered menu entrance.",
+      },
+      {
+        es: "SEO técnico y seguridad: datos estructurados schema.org, sitemap, imagen Open Graph dinámica y headers de seguridad.",
+        en: "Technical SEO and security: schema.org structured data, sitemap, dynamic Open Graph image and security headers.",
+      },
+    ],
+    images: ["/projects/DZ.png", "/projects/DZ1.png", "/projects/DZ2.png"],
+    demoUrl: "https://www.diagonalzero.com.ar/",
+    company: "Freelance",
+  },
+  {
     slug: "biosyntech",
     name: "Biosyntech",
     description: {
